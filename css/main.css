@@ -317,7 +317,7 @@ textarea.form-control {
 ================================*/
 
 #navigation, .navbar-fixed-top {
-	background-color: rgba(32, 51, 60, 0.9);
+	background-color: rgb(195, 32, 27);
 }
 
 .navbar {
@@ -1104,7 +1104,7 @@ a:hover,
 .price.featured .btn-primary:hover, 
 .twitter-feed a, 
 #main-contact-form .btn-primary:hover {
-    color: #f7941d;
+    color: #ffd040; font-weight: 700;
 }
 
 
