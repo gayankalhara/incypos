@@ -1,0 +1,3 @@
+rm -f incypos.tar.gz
+tar -zvcf incypos.tar.gz /Users/gayankalhara/Documents/IncyPOS/Website/incypos
+sudo scp /Users/gayankalhara/Documents/IncyPOS/Website/incypos/incypos.tar.gz gayankalhara@52.76.79.54:/etc/nginx/sites-available/incypos.com

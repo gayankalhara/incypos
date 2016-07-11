@@ -35,6 +35,67 @@ jQuery(function ($) {
         });
 
     }());
+
+    (function() {
+        var t = $(".dropdown"),
+            e = t.find('[class*="__toggle"]'),
+            i = t.find('[class*="__menu"]'),
+            s = $(".gateway-list__item"),
+            n = $(".not-supported"),
+            o = $(".view-all"),
+            r = {
+                worldpay: ["US", "AU", "CA", "CH", "DE", "DK", "ES", "FR", "GB",
+                    "HK", "IT", "JP", "NZ", "NO", "SG", "SE", "US", "ZA"
+                ],
+                recurly: ["INT"]
+            },
+            a = function(t) {
+                var e = [];
+                for (var i in r)
+                    for (var s = 0; s < r[i].length; s++)
+                        if (-1 !== r[i].indexOf(t.toUpperCase())) {
+                            e.push(i);
+                            break
+                        }
+                return e
+            },
+            l = function(t) {
+                var e = a(t),
+                    i = 0;
+                s.each(function() {
+                    var t = $(this),
+                        s = t.data("gateway");
+                    e.indexOf(s) >= 0 ? (t.show(), i++) : t.hide()
+                }), "all" == t && s.show(), 0 === i ? n.show() : n.hide()
+            },
+            h = function() {
+                i.removeClass("dropdown__menu--show")
+            },
+            c = function() {
+                i.toggleClass("dropdown__menu--show")
+            },
+            u = function(t, i) {
+                "other" === i && (i = "other", t = "Select a country"), e.html(
+                    '<span class="country-flag country-' + i + '"></span> ' +
+                    t), l(i)
+            },
+            d = function(t) {
+                t.preventDefault(), u("Select a country", "all"), n.hide()
+            },
+            p = function(t) {
+                t.preventDefault(), c()
+            },
+            f = function(t) {
+                var e = $(t.currentTarget),
+                    i = e.data("filter-by");
+                t.preventDefault(), u(e.text(), i), h()
+            },
+            g = function() {
+                e.on("click", p), i.on("click", "a", f), o.on("click", d), u(
+                    "Sri Lanka", "lk")
+            };
+        t.length > 0 && g()
+    }());
 	
 	
 	/*==============================================================*/
@@ -100,7 +161,7 @@ jQuery(function ($) {
 	});
 	
 	$("#screenshot-slider").owlCarousel({ 
-		items : 4,
+		items : 2,
 		pagination	: true,	
 	});
 	
@@ -130,4 +191,71 @@ jQuery(function ($) {
 	
 	
 });
+
+$( document ).ready(function() {
+    var figures = $('#figures').offset().top - 100;
+	var completeSystem = $('#complete-system').offset().top - 120;
+	var features = $('#features').offset().top - 100;
+	var ourClients = $('#why-special').offset().top;
+
+
+	$(document).scroll(function(){
+		if($(this).scrollTop() > ourClients) {   
+	        $('.navbar-fixed-top').css({"background-color":"rgb(4, 76, 152)"});
+	    } else if($(this).scrollTop() > features) {   
+	        $('.navbar-fixed-top').css({"background-color":"rgb(46, 210, 142)"});
+	    } else if($(this).scrollTop() > completeSystem) {   
+	        $('.navbar-fixed-top').css({"background-color":"rgb(242, 108, 108)"});
+	    } else if($(this).scrollTop() > figures) {   
+	        $('.navbar-fixed-top').css({"background-color":"rgb(109, 189, 12)"});
+	    } else {
+	        $('.navbar-fixed-top').css({"background-color":"#ff5e3a"});
+	    }
+
+	});
+});
+
+
+
+$('form').submit(function ()
+    {
+        var columns = ["name", "contact_number", "email", "intention", "status"];
+        var values = ["Gayan", "076-6987229", "gayan.csnc@gmail.com", "call-to-action", "new"];
+
+        var inserts = [{columns: columns, tableName: "customer", values: values}]
+        var transactions = [{inserts:inserts}];
+
+        var objJSON = new Object;
+        objJSON.transactions = transactions;
+        objJSON.databaseName = "incy";
+
+        var strJSON = JSON.stringify(objJSON);
+
+        var url = "http://192.168.1.101:9000/sync";
+
+        $.ajaxSetup({
+            dataType    :"json", // all requests should respond with json string by default
+            type        : "POST",
+            ContentType: "application/json",
+            headers: { 'Allow-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'}
+        });
+
+        $.ajax ({
+            url: url,
+            data: JSON.stringify(objJSON),
+            contentType: "application/json;",
+            headers: { 'Allow-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'},
+            success: function(data){
+                swal(
+                  'Thank you!',
+                  "We'll get in touch with you as quickly as possible!",
+                  'success'
+                )
+
+                console.log("data");
+            }
+        });
+
+        return false;
+    });
 
