@@ -1,7 +1,7 @@
 jQuery(function ($) {
 
     'use strict';
-	
+
 	/*==============================================================*/
     // Table of index
     /*==============================================================*/
@@ -11,7 +11,7 @@ jQuery(function ($) {
     # Magnific Popup
     # WoW Animation
     ==============================================================*/
-	
+
 	// ----------------------------------------------
     // # Demo Chooser
     // ----------------------------------------------
@@ -24,14 +24,14 @@ jQuery(function ($) {
 		})
 
     }());
-	
+
 	/*==============================================================*/
     // # Preloader
     /*==============================================================*/
-    
+
     (function () {
-        $(window).load(function(){         
-            $('.preloader').fadeOut('slow',function(){$(this).remove();});       
+        $(window).load(function(){
+            $('.preloader').fadeOut('slow',function(){$(this).remove();});
         });
 
     }());
@@ -96,24 +96,24 @@ jQuery(function ($) {
             };
         t.length > 0 && g()
     }());
-	
-	
+
+
 	/*==============================================================*/
 	//Mobile Toggle Control
 	/*==============================================================*/
-	
-	 $(function(){ 
+
+	 $(function(){
 		 var navMain = $("#mainmenu");
 		 navMain.on("click", "a", null, function () {
 			 navMain.collapse('hide');
 		 });
 	 });
-	 	
-		
+
+
 	/*==============================================================*/
     // Menu add class
     /*==============================================================*/
-	(function () {	
+	(function () {
 		function menuToggle(){
 			var windowWidth = $(window).width();
 			if(windowWidth > 767 ){
@@ -125,23 +125,23 @@ jQuery(function ($) {
 					};
 					if( $(window)){
 						$('#home-three .navbar').addClass('navbar-fixed-top');
-					} 
+					}
 				});
 			}else{
-				
+
 				$('.navbar').addClass('navbar-fixed-top');
-					
-			};	
+
+			};
 		}
 
 		menuToggle();
 	}());
-	
+
 	$('#mainmenu').onePageNav({
 		currentClass: 'active',
 	});
-	
-	
+
+
 	/*==============================================================*/
     // WoW Animation
     /*==============================================================*/
@@ -151,103 +151,69 @@ jQuery(function ($) {
     // Owl Carousel
     /*==============================================================*/
 
-	$("#team-slider").owlCarousel({ 	
-		pagination	: false,	
+	$("#team-slider").owlCarousel({
+		pagination	: false,
 		navigation:true,
 		navigationText: [
 		  "<span class='team-slider-left'><i class=' fa fa-angle-left '></i></span>",
 		  "<span class='team-slider-right'><i class=' fa fa-angle-right'></i></span>"
 		]
 	});
-	
-	$("#screenshot-slider").owlCarousel({ 
+
+	$("#screenshot-slider").owlCarousel({
 		items : 2,
-		pagination	: true,	
+		pagination	: true,
 	});
-	
+
 	/*==============================================================*/
     // Magnific Popup
     /*==============================================================*/
-	
+
 	(function () {
 		$('.image-link').magnificPopup({
 			gallery: {
 			  enabled: true
-			},		
-			type: 'image' 
+			},
+			type: 'image'
 		});
 		$('.feature-image .image-link').magnificPopup({
 			gallery: {
 			  enabled: false
-			},		
-			type: 'image' 
+			},
+			type: 'image'
 		});
-		$('.image-popup').magnificPopup({	
-			type: 'image' 
+		$('.image-popup').magnificPopup({
+			type: 'image'
 		});
 		$('.video-link').magnificPopup({type:'iframe'});
 	}());
-	
-	
-	
+
+
+
 });
 
 $('form').submit(function ()
     {
-        var columns = ["name", "contact_number", "email", "intention", "status"];
-        var values = ["Gayan", "076-6987229", "gayan.csnc@gmail.com", "call-to-action", "new"];
+        $.ajaxSetup({
+            dataType    :"raw", // all requests should respond with json string by default
+            ContentType: "application/json",
+            type: "POST",
+            headers:  {'Access-Control-Allow-Headers' : 'Authorization, Content-Type' },
+        });
 
-        var inserts = [{columns: columns, tableName: "customer", values: values}]
-        var transactions = [{inserts:inserts}];
+        $.ajax ({
+            url: url,
+            data: JSON.stringify(objJSON),
+            success: function(data){
+                swal(
+                  'Thank you!',
+                  "We'll get in touch with you as quickly as possible!",
+                  'success'
+                )
 
-        var objJSON = new Object;
-        objJSON.transactions = transactions;
-        objJSON.databaseName = "incy";
-
-        var strJSON = JSON.stringify(objJSON);
-
-        var url = "http://api.incylabs.com/sync";
-
-        var settings = {
-		  "async": true,
-		  "crossDomain": true,
-		  "url": "http://api.incylabs.com/sync",
-		  "method": "POST",
-		  "useDefaultXhrHeader": "false",
-		  "headers": {
-		    "content-type": "application/json",
-		    "cache-control": "no-cache",
-		    "postman-token": "432d82e6-3f4a-6053-890d-69618a53e8ac"
-		  },
-		  "processData": false,
-		  "data": "{\"transactions\":[{\"inserts\":[{\"columns\":[\"name\",\"contact_number\",\"email\",\"intention\",\"status\"],\"tableName\":\"customer\",\"values\":[\"Gayan\",\"076-6987229\",\"gayan.csnc@gmail.com\",\"call-to-action\",\"new\"]}]}],\"databaseName\":\"incy\"}"
-		}
-
-		$.ajax(settings).done(function (response) {
-		  console.log(response);
-		});
-
-        // $.ajaxSetup({
-        //     dataType    :"raw", // all requests should respond with json string by default
-        //     ContentType: "application/json",
-        //     type: "POST",
-        //     headers:  {'Access-Control-Allow-Headers' : 'Authorization, Content-Type' },
-        // });
-
-        // $.ajax ({
-        //     url: url,
-        //     data: JSON.stringify(objJSON),
-        //     success: function(data){
-        //         swal(
-        //           'Thank you!',
-        //           "We'll get in touch with you as quickly as possible!",
-        //           'success'
-        //         )
-
-        //         console.log("data");
-        //     }
-        // });
+                console.log("data");
+            }
+        });
 
         return false;
     });
-
