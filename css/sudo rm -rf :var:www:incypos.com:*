@@ -1,0 +1,5 @@
+sudo rm -rf /var/www/incypos.com/*
+cd /var/www/incypos.com
+sudo git clone https://gayankalhara:003153480999Github@github.com/gayankalhara/incypos.git
+sudo mv -v /var/www/incypos.com/incypos/* /var/www/incypos.com/
+sudo rm -rf /var/www/incypos.com/incypos
