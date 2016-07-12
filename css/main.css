@@ -1,3 +1,4 @@
+
 /*
   Theme Name: Nap App
   Theme URL: http://demo.themeregion.com/nap-app
@@ -30,7 +31,11 @@
 @import'vendor/jquery.mCustomScrollbar.css';
 
 #software-pt, #software-pt p {
-    color: #fff;
+    color: #ccc;
+}
+
+.bg-gray{
+	background-color: #f5f6f6;
 }
 
 .pt-price{
@@ -173,7 +178,7 @@ Mouse Scroll Down Animation
 }
 
 .post-tile:hover .post-body{
-	background-color: #27c28c;
+	background-color: #ff5e3a;
 	color: #fff;
 }
 
@@ -186,7 +191,7 @@ Mouse Scroll Down Animation
 	}
 
 .post-tile:hover .post-body{
-	background-color: #27c28c;
+	background-color: #ff5e3a;
 }
 
 .post-tile {
@@ -2247,7 +2252,7 @@ textarea.form-control {
 }
 
 #testimonial-slider .item ul li {
-	color:#a8d623;
+	color: #ff5e3a;
 }
 
 #testimonial-slider .item> p {

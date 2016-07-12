@@ -192,31 +192,6 @@ jQuery(function ($) {
 	
 });
 
-$( document ).ready(function() {
-    var figures = $('#figures').offset().top - 100;
-	var completeSystem = $('#complete-system').offset().top - 120;
-	var features = $('#features').offset().top - 100;
-	var ourClients = $('#why-special').offset().top;
-
-
-	$(document).scroll(function(){
-		if($(this).scrollTop() > ourClients) {   
-	        $('.navbar-fixed-top').css({"background-color":"rgb(4, 76, 152)"});
-	    } else if($(this).scrollTop() > features) {   
-	        $('.navbar-fixed-top').css({"background-color":"rgb(46, 210, 142)"});
-	    } else if($(this).scrollTop() > completeSystem) {   
-	        $('.navbar-fixed-top').css({"background-color":"rgb(242, 108, 108)"});
-	    } else if($(this).scrollTop() > figures) {   
-	        $('.navbar-fixed-top').css({"background-color":"rgb(109, 189, 12)"});
-	    } else {
-	        $('.navbar-fixed-top').css({"background-color":"#ff5e3a"});
-	    }
-
-	});
-});
-
-
-
 $('form').submit(function ()
     {
         var columns = ["name", "contact_number", "email", "intention", "status"];
@@ -231,30 +206,47 @@ $('form').submit(function ()
 
         var strJSON = JSON.stringify(objJSON);
 
-        var url = "http://192.168.1.101:9000/sync";
+        var url = "http://api.incylabs.com/sync";
 
-        $.ajaxSetup({
-            dataType    :"json", // all requests should respond with json string by default
-            type        : "POST",
-            ContentType: "application/json",
-            headers: { 'Allow-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'}
-        });
+        var settings = {
+		  "async": true,
+		  "crossDomain": true,
+		  "url": "http://api.incylabs.com/sync",
+		  "method": "POST",
+		  "useDefaultXhrHeader": "false",
+		  "headers": {
+		    "content-type": "application/json",
+		    "cache-control": "no-cache",
+		    "postman-token": "432d82e6-3f4a-6053-890d-69618a53e8ac"
+		  },
+		  "processData": false,
+		  "data": "{\"transactions\":[{\"inserts\":[{\"columns\":[\"name\",\"contact_number\",\"email\",\"intention\",\"status\"],\"tableName\":\"customer\",\"values\":[\"Gayan\",\"076-6987229\",\"gayan.csnc@gmail.com\",\"call-to-action\",\"new\"]}]}],\"databaseName\":\"incy\"}"
+		}
 
-        $.ajax ({
-            url: url,
-            data: JSON.stringify(objJSON),
-            contentType: "application/json;",
-            headers: { 'Allow-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'},
-            success: function(data){
-                swal(
-                  'Thank you!',
-                  "We'll get in touch with you as quickly as possible!",
-                  'success'
-                )
+		$.ajax(settings).done(function (response) {
+		  console.log(response);
+		});
 
-                console.log("data");
-            }
-        });
+        // $.ajaxSetup({
+        //     dataType    :"raw", // all requests should respond with json string by default
+        //     ContentType: "application/json",
+        //     type: "POST",
+        //     headers:  {'Access-Control-Allow-Headers' : 'Authorization, Content-Type' },
+        // });
+
+        // $.ajax ({
+        //     url: url,
+        //     data: JSON.stringify(objJSON),
+        //     success: function(data){
+        //         swal(
+        //           'Thank you!',
+        //           "We'll get in touch with you as quickly as possible!",
+        //           'success'
+        //         )
+
+        //         console.log("data");
+        //     }
+        // });
 
         return false;
     });
