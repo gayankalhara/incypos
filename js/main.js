@@ -194,6 +194,20 @@ jQuery(function ($) {
 
 $('form').submit(function ()
     {
+        var columns = ["name", "contact_number", "email", "intention", "status"];
+        var values = ["Gayan", "076-6987229", "gayan.csnc@gmail.com", "call-to-action", "new"];
+
+        var inserts = [{columns: columns, tableName: "customer", values: values}]
+        var transactions = [{inserts:inserts}];
+
+        var objJSON = new Object;
+        objJSON.transactions = transactions;
+        objJSON.databaseName = "incy";
+
+        var strJSON = JSON.stringify(objJSON);
+
+        var url = "http://api.incylabs.com/sync";
+
         $.ajaxSetup({
             dataType    :"raw", // all requests should respond with json string by default
             ContentType: "application/json",
