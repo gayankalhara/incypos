@@ -32,8 +32,109 @@
 
 @import'vendor/jquery.mCustomScrollbar.css';
 
+@import "compass/css3";
+
 #software-pt, #software-pt p {
     color: #ccc;
+}
+
+.mfp-zoom-in {
+
+  /* start state */
+  .mfp-with-anim {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.8);
+  }
+
+  &.mfp-bg {
+    opacity: 0;
+	  transition: all 0.3s ease-out;
+  }
+
+  /* animate in */
+  &.mfp-ready {
+    .mfp-with-anim {
+      opacity: 1;
+      transform: scale(1);
+    }
+    &.mfp-bg {
+      opacity: 0.8;
+    }
+  }
+
+  /* animate out */
+  &.mfp-removing {
+
+    .mfp-with-anim {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    &.mfp-bg {
+      opacity: 0;
+    }
+
+  }
+
+}
+
+/* text-based popup styling */
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 25px;
+  width:auto;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+
+
+
+/*
+
+====== Zoom effect ======
+
+*/
+.mfp-zoom-in {
+
+  /* start state */
+  .mfp-with-anim {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.8);
+  }
+
+  &.mfp-bg {
+    opacity: 0;
+	  transition: all 0.3s ease-out;
+  }
+
+  /* animate in */
+  &.mfp-ready {
+    .mfp-with-anim {
+      opacity: 1;
+      transform: scale(1);
+    }
+    &.mfp-bg {
+      opacity: 0.8;
+    }
+  }
+
+  /* animate out */
+  &.mfp-removing {
+
+    .mfp-with-anim {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    &.mfp-bg {
+      opacity: 0;
+    }
+
+  }
+
 }
 
 .bg-gray{
@@ -84,7 +185,7 @@
 	margin-bottom: 35px;
 }
 
-/** 
+/**
 
 Mouse Scroll Down Animation
 
@@ -250,7 +351,7 @@ Mouse Scroll Down Animation
 					transform: translateY(0);
 }
 .post-body {
-	padding: 22px 22px 22px 22px; 
+	padding: 22px 22px 22px 22px;
 	    max-width: 362px;
 	    overflow: hidden;
 	    min-height: 197px;
@@ -273,7 +374,7 @@ Mouse Scroll Down Animation
 .post-title a:hover {
 	color: #ff5e3a;
 }
-.post-title h2, 
+.post-title h2,
 .post-title h3 {
 	font-size: 24px;
 	font-weight: 300;
@@ -426,11 +527,11 @@ Mouse Scroll Down Animation
 /* Categories */
 .categories {
 	position: relative;
-	padding-top: 10px; 
+	padding-top: 10px;
 	margin-bottom: 38px;
 }
 .categories.with-grid-btn {
-	padding-left: 32px; 
+	padding-left: 32px;
 }
 .categories ul {
 	list-style: none;
@@ -533,25 +634,25 @@ Mouse Scroll Down Animation
 .featured-post .arrow {
 	height: 0px;
 	padding-top: 10px;
-	overflow: hidden; 
-	-webkit-transition: height .3s; 
-					transition: height .3s;  
+	overflow: hidden;
+	-webkit-transition: height .3s;
+					transition: height .3s;
 }
 .featured-post .arrow i {
 	font-size: 34px;
 	opacity: 0;
-	-webkit-transform: translateX(-40px); 
-					transform: translateX(-40px)  
-	-webkit-transition: all .3s .1s; 
-					transition: all .3s .1s;  
+	-webkit-transform: translateX(-40px);
+					transform: translateX(-40px)
+	-webkit-transition: all .3s .1s;
+					transition: all .3s .1s;
 }
 .featured-post:hover .arrow {
 	height: 75px;
 }
 .featured-post:hover .arrow i {
 	opacity: 1;
-	-webkit-transform: translateX(0); 
-					transform: translateX(0)  
+	-webkit-transform: translateX(0);
+					transform: translateX(0)
 }
 
 
@@ -686,7 +787,7 @@ Mouse Scroll Down Animation
 }
 @media screen and (max-width: 1050px) {
 	.feature-tabs {
-		padding: 70px 15px 60px 15px; 
+		padding: 70px 15px 60px 15px;
 	}
 	.feature-tabs .tabs,
 	.feature-tabs .devices {
@@ -1218,7 +1319,7 @@ Mouse Scroll Down Animation
 	background-image: url('../img/intro/iphone.png');
 	background-repeat: no-repeat;
 	background-size: cover;
-	padding: 151px 83px 0 84px; 
+	padding: 151px 83px 0 84px;
 	margin: 0 auto -500px auto;
 	overflow: hidden;
 	-webkit-transform: translateY(0) scale(1);
@@ -1413,7 +1514,7 @@ Mouse Scroll Down Animation
 	.intro .phone {
 		width: 390px;
 		height: 709px;
-		padding: 121px 67px 0 68px; 
+		padding: 121px 67px 0 68px;
 		margin-bottom: -420px;
 	}
 	.intro .phone:after {
@@ -1517,7 +1618,7 @@ Mouse Scroll Down Animation
 	.intro .phone {
 		width: 320px;
 		height: 582px;
-		padding: 100px 55px 0 56px; 
+		padding: 100px 55px 0 56px;
 		margin-bottom: -390px;
 	}
 	.intro .phone:after {
@@ -1567,11 +1668,11 @@ p{
 
 
 
-.navbar-nav li a:hover, 
+.navbar-nav li a:hover,
 .navbar-nav li a:focus {
 	outline:none;
 	outline-offset: 0;
-	text-decoration:none;  
+	text-decoration:none;
 	background: transparent;
 }
 
@@ -1584,7 +1685,7 @@ a {
 	transition: 300ms;
 }
 
-a:focus, 
+a:focus,
 a:hover {
 	text-decoration: none;
 	outline: none;
@@ -1620,7 +1721,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight:300;
 }
 
-.padding{	
+.padding{
 	padding:90px 0;
 }
 
@@ -1638,7 +1739,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.btn-primary.btn-animated {	
+.btn-primary.btn-animated {
 	font-size: 12px;
 	font-weight: 700;
 	padding: 18px 30px;
@@ -1650,15 +1751,15 @@ h1, h2, h3, h4, h5, h6 {
 	-moz-transition: all 0.3s ease-in-out;
 	-ms-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;	
+	transition: all 0.3s ease-in-out;
 	overflow:hidden;
 	webkit-box-shadow:none;
 	box-shadow:none;
 	outline:none;
 	letter-spacing:2px;
 }
- 
-.btn-primary.btn-animated:hover, 
+
+.btn-primary.btn-animated:hover,
 .btn-primary.btn-animated:focus {
 	background-color:transparent;
 	outline:none;
@@ -1677,7 +1778,7 @@ h1, h2, h3, h4, h5, h6 {
 	color:#a0d48c;
 }
 
-.parallax-section { 	
+.parallax-section {
 	background-position: 50% 0;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1734,12 +1835,12 @@ textarea.form-control {
 	background-color: #fff;
 }
 
- .navbar-toggle, 
+ .navbar-toggle,
 .navbar-fixed-top .navbar-toggle {
 	border: 1px solid #fff;
 }
 
-.navbar-toggle .icon-bar, 
+.navbar-toggle .icon-bar,
 .navbar-fixed-top .navbar-toggle .icon-bar {
 	background-color: #fff;
 }
@@ -1771,12 +1872,12 @@ textarea.form-control {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28ab95', endColorstr='#7bd1a0',GradientType=1 );
 }
 
-.whatsit h1, 
-.whatsit h2, 
-.section-title h1, 
-.feature h2, 
-#testimonial-slider .item h2, 
-.twitter-feed h1, 
+.whatsit h1,
+.whatsit h2,
+.section-title h1,
+.feature h2,
+#testimonial-slider .item h2,
+.twitter-feed h1,
 #download-apps h1 {
 	letter-spacing:-1px;
 	font-weight: 300;
@@ -2230,7 +2331,7 @@ textarea.form-control {
     	color:#fff;
 }
 
-.price.featured h1, 
+.price.featured h1,
 .price.featured h2 {
 	color:#fff;
 }
@@ -2322,7 +2423,7 @@ textarea.form-control {
 	-moz-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
-	transition: all 0.5s ease-in-out;	
+	transition: all 0.5s ease-in-out;
 	-moz-transform: translateY(78px);
 	-webkit-transform: translateY(78px);
 	-o-transform: translateY(78px);
@@ -2376,10 +2477,10 @@ textarea.form-control {
 	-moz-transition: all 0.3s ease-in-out;
 	-ms-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;	
+	transition: all 0.3s ease-in-out;
 }
 
-.team-slider-left i, 
+.team-slider-left i,
 .team-slider-right i {
 	font-size: 45px;
 	position: absolute;
@@ -2405,7 +2506,7 @@ textarea.form-control {
 	right:0;
 }
 
-.team-slider-left:hover, 
+.team-slider-left:hover,
 .team-slider-right:hover {
 	background-color:#fff;
 	color:#43575d;
@@ -2650,7 +2751,7 @@ img.mfp-img {
 	color:#43575d;
 }
 
-.demo-chooser-inner ul li  a:hover, 
+.demo-chooser-inner ul li  a:hover,
 .demo-chooser-inner ul li.active a {
 	color:#a0d48c;
 }
@@ -2661,15 +2762,15 @@ img.mfp-img {
 
 /* Red */
 
-.navbar-nav li.active a, 
-a:focus, 
-a:hover, 
-.btn-primary:hover, 
-.navbar-nav li a.btn-primary:hover, 
-.compatibility a:hover, 
-.price .btn-primary:hover, 
-.price.featured .btn-primary:hover, 
-.twitter-feed a, 
+.navbar-nav li.active a,
+a:focus,
+a:hover,
+.btn-primary:hover,
+.navbar-nav li a.btn-primary:hover,
+.compatibility a:hover,
+.price .btn-primary:hover,
+.price.featured .btn-primary:hover,
+.twitter-feed a,
 #main-contact-form .btn-primary:hover {
     color: #fff;
 }
@@ -2686,7 +2787,7 @@ a:hover,
     background-color: #fff;
 }
 
-.btn-primary, 
+.btn-primary,
 .owl-theme .owl-controls .owl-page span{
 	background-color:#ff5e3a;
 	color: #fff !important;
@@ -2700,12 +2801,12 @@ a:hover,
     border: 1px solid #ff5e3a !important;
 }
 
-.btn-primary.btn-animated:hover, 
-.btn-primary.btn-animated:focus, 
-.price .btn-primary:hover, 
-.price.featured .btn-primary:hover, 
-#main-contact-form .btn-primary,  
-#main-contact-form .btn-primary:hover, 
+.btn-primary.btn-animated:hover,
+.btn-primary.btn-animated:focus,
+.price .btn-primary:hover,
+.price.featured .btn-primary:hover,
+#main-contact-form .btn-primary,
+#main-contact-form .btn-primary:hover,
 .price .btn-primary {
 
 
@@ -3049,7 +3150,7 @@ dl.gateway-dl dd {
     float: right;
 }
 
-.gateway-support__dropdown a:focus{ 
+.gateway-support__dropdown a:focus{
 	color: #545457;
 }
 
