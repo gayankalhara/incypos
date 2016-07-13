@@ -1,102 +1,104 @@
+// @https://github.com/jackocnr/intl-tel-input
+
+$("input#frmPhone").intlTelInput({
+    geoIpLookup: function(callback) {
+      $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+        var countryCode = (resp && resp.country) ? resp.country : "";
+        callback(countryCode);
+      });
+    },
+    responsiveDropdown: true,
+    initialCountry: "auto",
+    preferredCountries: ["lk", "sg", "mv", "ar", "gb", "in", "id", "th"],
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/js/utils.js"
+});
+
+
+$("input#frmPhone").on("keyup change", function() {
+    $e = $("input#frmPhone");
+
+
+    var t;
+    t = void 0,
+    t = $("input#frmPhone").intlTelInput("isValidNumber"),
+    $("#phone").val(t);
+    console.log(t);
+
+    if(t==false){
+        if(!$e.next('div.popover:visible').length){
+            $e.popover('show');
+        }
+    } else{
+        $e.popover('hide');
+    }
+    
+            
+});
+
+
+$('form').submit(function (submitEvt){
+
+    var time = Date.now();
+    var columns = ["name", "email", "country_code", "phone", "utm_source", "utm_content"];
+    var values = ["Gayan Kalhara", "gayan.csnc@gmail.com", "+94", "0766987229", "website", "call-to-action"];
+
+    var inserts = [{columns: columns, tableName: "subscriber", values: values}]
+    var transactions = [{inserts:inserts}];
+
+    var objJSON = new Object;
+    objJSON.transactions = transactions;
+    objJSON.databaseName = "incy";
+
+    var strJSON = JSON.stringify(objJSON);
+
+    var url = "http://api.incylabs.com/sync";
+
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": url,
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-cache"
+      },
+      "processData": false,
+      "data": JSON.stringify(objJSON),
+    }
+
+    $.ajax(settings).done(function (response) {
+            swal(
+              'Thank you!',
+              "We'll get in touch with you within 48 hours.",
+              'success'
+            )
+
+        var error = response.transactions[0].error;
+
+        if (error == null){
+            swal(
+              'Thank you!',
+              "We'll get in touch with you within 48 hours.",
+              'success'
+            )
+        } else{
+            swal(
+              'Something went wrong!',
+              "Administrators notified. They'll fix this issue soon.",
+              'error'
+            )
+        }
+
+      console.log(JSON.stringify(response));
+    });
+
+    submitEvt.preventDefault();
+});
+
+
 jQuery(function ($) {
 
     'use strict';
-
-	/*==============================================================*/
-    // Table of index
-    /*==============================================================*/
-
-    /*==============================================================
-    # Menu add class
-    # Magnific Popup
-    # WoW Animation
-    ==============================================================*/
-
-	// ----------------------------------------------
-    // # Demo Chooser
-    // ----------------------------------------------
-
-    (function() {
-
-		$('.demo-chooser .toggler').on('click', function(event){
-			event.preventDefault();
-			$(this).closest('.demo-chooser').toggleClass('opened');
-		})
-
-    }());
-
-	/*==============================================================*/
-    // # Preloader
-    /*==============================================================*/
-
-    (function () {
-        $(window).load(function(){
-            $('.preloader').fadeOut('slow',function(){$(this).remove();});
-        });
-
-    }());
-
-    (function() {
-        var t = $(".dropdown"),
-            e = t.find('[class*="__toggle"]'),
-            i = t.find('[class*="__menu"]'),
-            s = $(".gateway-list__item"),
-            n = $(".not-supported"),
-            o = $(".view-all"),
-            r = {
-                worldpay: ["US", "AU", "CA", "CH", "DE", "DK", "ES", "FR", "GB",
-                    "HK", "IT", "JP", "NZ", "NO", "SG", "SE", "US", "ZA"
-                ],
-                recurly: ["INT"]
-            },
-            a = function(t) {
-                var e = [];
-                for (var i in r)
-                    for (var s = 0; s < r[i].length; s++)
-                        if (-1 !== r[i].indexOf(t.toUpperCase())) {
-                            e.push(i);
-                            break
-                        }
-                return e
-            },
-            l = function(t) {
-                var e = a(t),
-                    i = 0;
-                s.each(function() {
-                    var t = $(this),
-                        s = t.data("gateway");
-                    e.indexOf(s) >= 0 ? (t.show(), i++) : t.hide()
-                }), "all" == t && s.show(), 0 === i ? n.show() : n.hide()
-            },
-            h = function() {
-                i.removeClass("dropdown__menu--show")
-            },
-            c = function() {
-                i.toggleClass("dropdown__menu--show")
-            },
-            u = function(t, i) {
-                "other" === i && (i = "other", t = "Select a country"), e.html(
-                    '<span class="country-flag country-' + i + '"></span> ' +
-                    t), l(i)
-            },
-            d = function(t) {
-                t.preventDefault(), u("Select a country", "all"), n.hide()
-            },
-            p = function(t) {
-                t.preventDefault(), c()
-            },
-            f = function(t) {
-                var e = $(t.currentTarget),
-                    i = e.data("filter-by");
-                t.preventDefault(), u(e.text(), i), h()
-            },
-            g = function() {
-                e.on("click", p), i.on("click", "a", f), o.on("click", d), u(
-                    "Sri Lanka", "lk")
-            };
-        t.length > 0 && g()
-    }());
-
 
 	/*==============================================================*/
 	//Mobile Toggle Control
@@ -192,41 +194,103 @@ jQuery(function ($) {
 
 });
 
-$('form').submit(function ()
-    {
-        var columns = ["name", "contact_number", "email", "intention", "status"];
-        var values = ["Gayan", "076-6987229", "gayan.csnc@gmail.com", "call-to-action", "new"];
 
-        var inserts = [{columns: columns, tableName: "customer", values: values}]
-        var transactions = [{inserts:inserts}];
 
-        var objJSON = new Object;
-        objJSON.transactions = transactions;
-        objJSON.databaseName = "incy";
 
-        var strJSON = JSON.stringify(objJSON);
 
-        var url = "http://api.incylabs.com/sync";
+/*Document Ready*//////////////////////////////////////////////////////////////////////////////////////////////////////
+jQuery(document).ready(function($) {
+    'use strict';
 
-        $.ajaxSetup({
-            dataType    :"json", // all requests should respond with json string by default
-            ContentType: "application/json",
-            type: "POST",
-        });
-
-        $.ajax ({
-            url: url,
-            data: JSON.stringify(objJSON),
-            success: function(data){
-                swal(
-                  'Thank you!',
-                  "We'll get in touch with you as quickly as possible!",
-                  'success'
-                )
-
-                console.log("data");
+        /** Sticky Navbar and Footer
+        *******************************************/
+        $(window).on('load', function(){
+            if($('.navbar-sticky').length > 0) {
+                var waypoint = new Waypoint.Sticky({
+                  element: $('.navbar-sticky')[0],
+                handler: function(direction) {
+                    if(direction == 'down') {
+                      footer.addClass('footer-fixed-bottom');
+                      intro.addClass('transparent');
+                    } else {
+                        footer.removeClass('footer-fixed-bottom');
+                        intro.removeClass('transparent');
+                    }
+                  }
+                });
             }
         });
 
-        return false;
+    /** Feature Tabs (Changing screens of Tablet and Phone)
+    *********************************************************/
+  $('.feature-tabs .nav-tabs li a').on('click', function() {
+      var currentPhoneSlide = $(this).data("phone");
+      var currentTabletSlide = $(this).data("tablet");
+      $(".devices .phone .screens li").removeClass("active");
+      $(".devices .tablet .screens li").removeClass("active");
+      $(currentPhoneSlide).addClass("active");
+      $(currentTabletSlide).addClass("active");
+  });
+
+ //  /** Why is it Special - Autoswitching
+    // *********************************************************/
+    // if($('.feature-tabs .nav-tabs').length > 0) {
+ //    var changeInterval = $('.feature-tabs .nav-tabs').data('interval');
+    //  var tabCarousel = setInterval(function() {
+    //         var tabs = $('.feature-tabs .nav-tabs > li'),
+    //             active = tabs.filter('.active'),
+    //             next = active.next('li'),
+    //             toClick = next.length ? next.find('a') : tabs.eq(0).find('a');
+
+    //         if ($('#scrHv:hover').length == 0) {
+    //          toClick.trigger('click');
+    //      }
+    //   }, changeInterval);
+    // }
+
+    /** Graphs - Autoswitching
+    *********************************************************/
+
+  //   var changeInterval = 3000;
+        // var tabsC = setInterval(function() {
+     //        var tabsC = $('.autoS > li'),
+     //            activeC = tabsC.filter('.active'),
+     //            nextC = activeC.next('li'),
+     //            toClickC = nextC.length ? nextC.find('a') : tabsC.eq(0).find('a');
+
+     //            if ($('#ftrHv:hover').length == 0) {
+     //             toClickC.trigger('click');
+     //         }
+     //  }, changeInterval);
+
+    
+    
+    /** Custom Horizontal Scrollbar for Gallery/Blog (Home Page)
+    **************************************************************/
+  $(window).load(function(){
+    $('.scroller').mCustomScrollbar({
+            axis:"x",
+            theme:"dark",
+            scrollInertia: 300,
+            advanced:{autoExpandHorizontalScroll:true}
     });
+  });
+
+
+    /** Custom Vertical Scrollbar for Off-Canvas Navigation
+    **************************************************************/
+    var navBodyScroll = $('.nav-body .overflow');
+  $(window).load(function(){
+    navBodyScroll.height($(window).height() - $('.nav-head').height()-80);
+    navBodyScroll.mCustomScrollbar({
+                    theme:"dark",
+                    scrollInertia: 300,
+                    scrollbarPosition:"outside"
+    });
+  });
+  $(window).resize(function(){
+    navBodyScroll.height($(window).height() - $('.nav-head').height()-80);
+  });
+
+
+});/*Document Ready End*/////////////////////////////////////////////////////////////

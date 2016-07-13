@@ -32,10 +32,20 @@
 
 @import'vendor/jquery.mCustomScrollbar.css';
 
-@import "compass/css3";
+.popover.top{
+    margin-top: -55px;
+}
+
+.intl-tel-input .flag-container {
+  z-index: 4;
+}
 
 #software-pt, #software-pt p {
     color: #ccc;
+}
+
+.selected-flag{
+	outline: none;
 }
 
 .mfp-zoom-in {
@@ -2572,10 +2582,6 @@ textarea.form-control {
 ======== Contact Section =========
 ================================*/
 
-#contact {
-	overflow:hidden;
-}
-
 #main-contact-form .btn-primary {
 	color:#000;
 	margin-top:35px;
@@ -2798,7 +2804,7 @@ a:hover,
 }
 
 #contact .form-control:focus {
-    border: 1px solid #ff5e3a !important;
+    border: 1px solid #6ea733 !important;
 }
 
 .btn-primary.btn-animated:hover,
