@@ -51,7 +51,7 @@ $('form').submit(function (submitEvt){
 
     var strJSON = JSON.stringify(objJSON);
 
-    var url = "http://api.incylabs.com/sync";
+    var url = "https://api.incylabs.com/sync";
 
     var settings = {
       "async": true,
