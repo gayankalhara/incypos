@@ -209,10 +209,9 @@ $('form').submit(function ()
         var url = "http://api.incylabs.com/sync";
 
         $.ajaxSetup({
-            dataType    :"raw", // all requests should respond with json string by default
+            dataType    :"json", // all requests should respond with json string by default
             ContentType: "application/json",
             type: "POST",
-            headers:  {'Access-Control-Allow-Headers' : 'Authorization, Content-Type' },
         });
 
         $.ajax ({
