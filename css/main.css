@@ -32,8 +32,8 @@
 
 @import'vendor/jquery.mCustomScrollbar.css';
 
-body {
-	overflow-x: hidden !important;
+.container {
+    overflow-x:hidden;
 }
 
 .popover.top{
