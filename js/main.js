@@ -145,11 +145,6 @@ jQuery(function ($) {
 
 
 	/*==============================================================*/
-    // WoW Animation
-    /*==============================================================*/
-	new WOW().init();
-
-	/*==============================================================*/
     // Owl Carousel
     /*==============================================================*/
 
@@ -224,11 +219,8 @@ jQuery(document).ready(function($) {
     /** Feature Tabs (Changing screens of Tablet and Phone)
     *********************************************************/
   $('.feature-tabs .nav-tabs li a').on('click', function() {
-      var currentPhoneSlide = $(this).data("phone");
       var currentTabletSlide = $(this).data("tablet");
-      $(".devices .phone .screens li").removeClass("active");
       $(".devices .tablet .screens li").removeClass("active");
-      $(currentPhoneSlide).addClass("active");
       $(currentTabletSlide).addClass("active");
   });
 

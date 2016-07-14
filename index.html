@@ -101,14 +101,12 @@
     <div class="padding" id="about">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.10s"
-            data-wow-duration="0.5s" style=
-            "visibility: visible; animation-duration: 0.5s; animation-delay: 0.1s; animation-name: fadeInUp;">
+            <div class="col-sm-6" style=
+            "visibility: visible;">
             <img alt="" class="img-responsive" src=
             "images/mockup/whatsit.png"></div>
-            <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.20s"
-            data-wow-duration="0.5s" style=
-            "visibility: visible; animation-duration: 0.5s; animation-delay: 0.2s; animation-name: fadeInUp;">
+            <div class="col-sm-6" style=
+            "visibility: visible;>
             <div class="whatsit">
                     <h2 style="font-size: 34px;">Perfect for Restaurants, Bars,
                     Cafes, Night Clubs, Hotels, B&amp;Bs and Spas!</h2>
@@ -144,20 +142,20 @@
                             </div>
                         </div><!-- Nav tabs -->
                         <ul class="autoS nav-tabs text-right" id="ftrHv">
-                            <li class="">
-                                <a aria-expanded="false" data-toggle="tab"
-                                href="#speed">Resource Allocation</a>
-                            </li>
-                            <li class="">
-                                <a aria-expanded="false" data-toggle="tab"
-                                href="#downloads">Increased Speed</a>
-                            </li>
-                            <li class="">
-                                <a aria-expanded="false" data-toggle="tab"
-                                href="#share">Wastage Reduction</a>
-                            </li>
                             <li class="active">
-                                <a aria-expanded="true" data-toggle="tab" href=
+                                <a aria-expanded="true" data-toggle="tab"
+                                href="#resource-allocation">Resource Allocation</a>
+                            </li>
+                            <li class="">
+                                <a aria-expanded="false" data-toggle="tab"
+                                href="#speed">Increased Speed</a>
+                            </li>
+                            <li class="">
+                                <a aria-expanded="false" data-toggle="tab"
+                                href="#wastage-reduction">Wastage Reduction</a>
+                            </li>
+                            <li class="">
+                                <a aria-expanded="false" data-toggle="tab" href=
                                 "#customer-satisfaction">Customer
                                 Satisfaction</a>
                             </li>
@@ -172,14 +170,14 @@
                         <!-- Use different transitions: 'scale', 'scaleup', 'top', 'bottom', 'left', 'right' and 'flip' -->
                         <div class="tab-content" id="ftrHv" style=
                         "text-align: center;">
-                            <div class="tab-pane transition scale fade" id=
-                            "speed">
+                            <div class="tab-pane transition scale fade active in" id=
+                            "resource-allocation">
                                 <img alt="Speed" src="img/graphs/speed.png">
                                 <h2 style="color: #047cff; font-weight: 100;">3
                                 servers instead of 5</h2>
                             </div>
                             <div class="tab-pane transition right fade" id=
-                            "downloads">
+                            "speed">
                                 <img alt="Downloads" src=
                                 "img/graphs/guest-service.png">
                                 <h2 style=
@@ -187,7 +185,7 @@
                                 serve more customers</h2>
                             </div>
                             <div class="tab-pane transition flip fade" id=
-                            "share">
+                            "wastage-reduction">
                                 <img alt="Reduced Wastage" src=
                                 "img/graphs/reduce-wastage.png">
                                 <h2 style=
@@ -195,9 +193,7 @@
                                 Save unnecessary costs<br>
                                 accounted for wastage</h2>
                             </div>
-                            <div class=
-                            "tab-pane transition scale fade active in" id=
-                            "customer-satisfaction">
+                            <div class="tab-pane transition scale fade" id="customer-satisfaction">
                                 <img alt="Customer Satisfaction" src=
                                 "img/graphs/customer-satisfaction.png">
                                 <h2 style=
@@ -227,34 +223,37 @@
     <div id="contact" class="padding bg-gray" style="padding: 50px 0;">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.10s">
-					<form class="form-inline" name="formInterested">
-										<h2 style="display: inline-block; color: #888888; -webkit-font-smoothing: antialiased; vertical-align: middle; font-size: 30px; margin-right: 20px; font-weight: 300;">Interested? Let us call you!</h2>
-
-							<div class="form-group">
+				<div class="col-sm-12">
+					<form class="form-inline text-center" name="formInterested">
+						<h2 style="color: #888888; -webkit-font-smoothing: antialiased; vertical-align: middle; font-size: 30px; margin-right: 20px; font-weight: 300; margin-bottom: 30px;">Interested? Let us call you!</h2>
+                            
+                        <div class="row">
+                            <div class="col-sm-3">
 							    <label class="sr-only" for="frmName">Name</label>
 							    <input name="name" type="text" class="form-control" id="frmName" placeholder="Name" maxlength="100" required>
-
-
-						</div>
-
-							<div class="form-group">
+                            </div>
+                            
+                            <div class="col-sm-3">
 							    <label class="sr-only" for="frmEmail">Email</label>
 							    <input name="email" type="text" class="form-control required" data-content=
-            "Must be at least 3 characters long, and must only contain letters."
-            data-placement="top" data-trigger="manual" id="frmEmail" placeholder="Email" maxlength="100" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" title="Invalid Email" required>
-							</div>
-
-							<div class="form-group">
+                                "Must be at least 3 characters long, and must only contain letters."
+                                data-placement="top" data-trigger="manual" id="frmEmail" placeholder="Email" maxlength="100" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" title="Invalid Email" required>
+                            </div>
+                            
+                            <div class="col-sm-3">
 							    <label class="sr-only" for="frmPhone">Phone</label>
-							    <input name="phone" data-placement="top" data-trigger="manual" data-content="Phone Number is incorrect!" type="tel" class="form-control" id="frmPhone" maxlength="100" required>
-							</div>
+							    <input name="phone" style="padding-right: 0px;" data-placement="top" data-trigger="manual" data-content="Phone Number is incorrect!" type="tel" class="form-control" id="frmPhone" maxlength="100" required>
+                            </div>
+                                
+                            <div class="col-sm-3">
+                                <button style="height: 50px; outline: none; background-color: #63bb06;" type="submit" class="btn btn-primary">Please Contact Me</button>
+                            </div>
+                        </div>
 
-							<div class="form-group">
-							<button style="height: 50px; outline: none; background-color: #63bb06;" type="submit" class="btn btn-primary">Send</button>
-							</div>
+                        <p style="margin-top: 40px; font-size: 14px; color: #c1c1c1;">We respect your privacy and do not tolerate spam and will never sell, rent, lease or give away your information to any third party.</p>
 					</form>
-
+                    
+                    
 
 
 				</div>
@@ -267,15 +266,34 @@
 
     <div id="complete-system" class="padding">
 		<div class="container">
-			<div class="text-center section-title wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.10s">
+			<div class="text-center section-title" style="margin-bottom: 30px;">
 				<h1>Complete System</h1>
 			</div>
 			<div class="complete-system">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="text-right wow fadeInDown" data-wow-duration="0.5s" data-wow-delay="0.3s">
-							<img src="images/full-kit.jpg"/>
-						</div>
+                        <ul class="nav nav-tabs" id="myTab" style="text-align: center; margin-bottom: 25px;">
+
+                            <li class="active"><a data-target="#tablet" data-toggle="tab">Tablet Station</a></li>
+                            <li><a data-target="#mobile" data-toggle="tab">Mobile</a></li>
+                            <li><a data-target="#standard" data-toggle="tab">Standard Station</a></li>
+
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tablet">
+                                <img src="images/systems/tablet.jpg"/>
+                            </div>
+
+                            <div class="tab-pane" id="mobile">
+                                <img src="images/systems/mobile.jpg"/>
+                            </div>
+
+                            <div class="tab-pane" id="standard">
+                                <img src="images/systems/standard.jpg"/>
+                            </div>
+                        </div>
+
 					</div>
 
 				</div>
@@ -313,8 +331,7 @@
 	<div class="padding" id="features">
     <div class="container">
         <div class="row">
-            <div class="text-center section-title wow fadeInUp" data-wow-delay=
-            "0.1s" data-wow-duration="0.5s">
+            <div class="text-center section-title">
                 <h1>App Features</h1>
             </div>
         </div>
@@ -323,102 +340,69 @@
 
 
 
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="image-box">
+                    <img src="images/features/mobile-ordering.jpg" alt="" class="img-responsive">
+                    <h3>Mobile Ordering</h3>
+                    <p>Table side ordering with a tablet or a mobile improves customer service and speeds up order process with less errors.
+                    </p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="row">
-                <!-- Blog Posts -->
-                <div class="col-lg-12">
-                    <div class="scroller posts">
-                        <div class="item">
-                            <div class="post-tile">
-                                <img alt="Mobile Ordering" src=
-                                "images/features/mobile-ordering.jpg" />
-                                <div class="post-body">
-                                    <div class="post-title">
-                                        <h3>Mobile Ordering</h3>
-                                        <p>Table side ordering with a tablet or
-                                        a mobile improves customer service and
-                                        speeds up order process with less
-                                        errors</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="post-tile">
-                                <img alt="Reporting & Analytics" src=
-                                "images/features/reports-and-analytics.jpg" />
-                                <div class="post-body">
-                                    <div class="post-title">
-                                        <h3>Reporting & Analytics</h3>
-                                        <p>Data insights with charts and
-                                        numbers. Information about your
-                                        business you never knew you had access
-                                        to.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="post-tile">
-                                <img alt="Unlimited Number of Printers" src=
-                                "images/features/unlimited-printers.png" />
-                                <div class="post-body">
-                                    <div class="post-title">
-                                        <h3>Unlimited Number of Printers</h3>
-                                        <p>KOT (Kitchen Over Ticket), BOT (Bar
-                                        Over Ticket) and any other location you
-                                        would want to print can be easily
-                                        configured with a click.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="post-tile">
-                                <img alt="Inventory" src=
-                                "images/features/inventory.jpg" />
-                                <div class="post-body">
-                                    <div class="post-title">
-                                        <h3>Inventory</h3>
-                                        <p>Manage one or more warehouses and
-                                        monitor the operations effortlessly.
-                                        This has never been this easy.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="post-tile">
-                                <img alt="Guest" src=
-                                "images/features/guest.jpg" />
-                                <div class="post-body">
-                                    <div class="post-title">
-                                        <h3>Guest</h3>
-                                        <p>Identify loyal customers. Promote
-                                        offers & serve them beyond their
-                                        expectations. Know what your guest like
-                                        when they walk in to the
-                                        restaurant.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
+
+            <div class="col-sm-4">
+                <div class="image-box">
+                    <img src="images/features/reporting-and-analytics.jpg" alt="" class="img-responsive">
+                    <h3>Reporting and Analytics</h3>
+                    <p>Data insights with charts and numbers. Information about your business you never knew you had access to.</p>
+
+                </div>
+            </div><!--col-end-->
+            <div class="col-sm-4">
+                <div class="image-box">
+                    <img src="images/features/unlimited-printers.jpg" alt="" class="img-responsive">
+                    <h3>Unlimited Number of Printers</h3>
+                    <p>KOT, BOT and any other location you would want to print can be easily configured with a click.</p>
+
+                </div>
+            </div><!--col-end-->
+            <!--col-end-->
+        </div>
+
+
+        <div class="row" style="margin-top: 60px;">
+            <div class="col-sm-4">
+                <div class="image-box">
+                    <img src="images/features/inventory.jpg" alt="" class="img-responsive">
+                    <h3>Inventory</h3>
+                    <p>Manage one or more warehouses and monitor the operations effortlessly. This has never been this easy.</p>
+
+                </div>
+            </div>
+            <!--col-end-->
+            <div class="col-sm-4">
+                <div class="image-box">
+                    <img src="images/features/guest.jpg" alt="" class="img-responsive">
+                    <h3>Guest</h3>
+                    <p>Identify loyal customers. Promote offers & serve them beyond their expectations. Know what your guest like when they walk in to the restaurant.</p>
+
+                </div>
+            </div><!--col-end-->
+            <div class="col-sm-4">
+                <div class="image-box">
+                    <img src="images/features/new-one.jpg" alt="" class="img-responsive">
+                    <h3>New One</h3>
+                    <p>Data insights with charts and numbers. Information about your business you never knew you had access to.</p>
+
+                </div>
+            </div><!--col-end-->
+        </div>
+
+
+
+
+
         </div>
     </div>
 </div><!--/#features-->
@@ -429,8 +413,8 @@
         <!-- Heading when columns stack -->
         <div class="container" style="padding-bottom: 85px;">
           <div class="block-heading visible-when-stack">
-            <h2 style="color: #5f5f5f;">Why is it special?</h2>
-            <span>Look what this app has to offer</span>
+            <h2 style="color: #5f5f5f;">More Features</h2>
+            <span>Some more of feature highlights</span>
           </div>
 
           <!-- Devices -->
@@ -450,8 +434,8 @@
           <!-- Tabs -->
           <div class="tabs text-center">
             <div class="block-heading hidden-when-stack">
-              <h1>Why is it special?</h1>
-              <span>Look what this app has to offer</span>
+              <h1>More Features</h1>
+              <span>Some more of feature highlights</span>
             </div>
             <!-- Nav Tabs -->
             <!-- Remove data-autoswitch="true" to disable automatic tabs change. -->
@@ -470,19 +454,19 @@
             <div class="tab-content">
               <div class="tab-pane transition scale fade in active" id="video-player">
                 <h3>Digital Menu for Customers</h3>
-                <p>Get customers to spend more and promote your offers with more compelling information including pictures and videos. Eos iste distinctio sed architecto rem sapiente atque itaque soluta quisquam at ex praesentium sed exercitationem.</p>
+                <p>Get customers to spend more and promote your offers with more compelling information including pictures and videos.You also have the option of having a dedicated tablet for each table to allow customer to order their own meals.</p>
               </div>
               <div class="tab-pane transition scale fade" id="settings">
                 <h3>Kitchen Display System</h3>
-                <p>Two way communication between waiters and kitchen with less time and zero paper prints. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos iste distinctio sed architecto rem sapiente atque itaque soluta quisquam at ex praesentium sed exercitationem.</p>
+                <p>Two way communication between waiters and kitchen with less time and zero paper prints.With the KDS waiters do not have to continuesly check with the kitchen if the order is ready.They will get a notification in their device once the order is ready</p>
               </div>
               <div class="tab-pane transition scale fade" id="file-sharing">
                 <h3>Quick Service POS</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos iste distinctio sed architecto rem sapiente atque itaque soluta quisquam at ex praesentium sed exercitationem.</p>
+                <p>Faster customer service with quick service point of sales station.The basic set up with a printer is all you need. Perfect for self service counters.</p>
               </div>
               <div class="tab-pane transition scale fade" id="chat">
                 <h3>Unlimited Role Based Users</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos iste distinctio sed architecto rem sapiente atque itaque soluta quisquam at ex praesentium sed exercitationem.</p>
+                <p>Add as many number of users in different shifts.Sofware license is only per station. That makes it more cost effective for you as an owner.</p>
               </div>
             </div>
 
@@ -510,14 +494,14 @@
 	<section class="fw-bg bg-align-bottom padding" style="background-color: #fff;" id="features">
 
 		<div class="container">
-			<div class="text-center section-title wow fadeInDown" data-wow-duration="0.5s" data-wow-delay="0.1s">
+			<div class="text-center section-title">
 				<h1 style="">Prices and Plans</h1>
         <h2 style="">Complete System with Software</h2>
 			</div>
 			<div class="prices text-center ">
 				<div class="row">
 					<div class="col-sm-3">
-						<div class="price wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+						<div class="price">
 							<h2>Mobile</h2>
 
               <p style="margin-top: 35px;">Simplest option and more mobility. Allows you to go to your customer and settle the bills.</p>
@@ -538,7 +522,7 @@
 						</div>
 					</div>
 					<div class="col-sm-3">
-						<div class="price wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.4s">
+						<div class="price">
 							<h2>Standard</h2>
 
               <p style="margin-top: 35px;">Start with one setup. Grow from single to many.</p>
@@ -560,7 +544,7 @@
 						</div>
 					</div>
 					<div class="col-sm-3">
-						<div class="price wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.2s">
+						<div class="price">
 							<h2>Premium</h2>
 
               <p style="margin-top: 35px;">Comes with the 14" traditional big POS station. More space for you than a tablet.</p>
@@ -583,7 +567,7 @@
 
           <div class="col-sm-3">
             <a href="">
-            <div style="height: 644px; padding: 20px 50px;"  class="price wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.2s">
+            <div style="height: 644px; padding: 20px 50px;"  class="price">
               <div style="display: block; top: 5%; position: relative;">
                 <img style="width: 120px; margin-bottom: 25px;" src="images\icons\question.svg">
 
@@ -603,7 +587,7 @@
         </div>
 			</div>
 
-      <div class="text-center" style="margin-top: 75px;" data-wow-duration="0.5s" data-wow-delay="0.1s">
+      <div class="text-center" style="margin-top: 75px;">
         <h2 style="margin-bottom: 50px; color: #757575;">Bring your own hardware? Here are sofware license prices.</h2>
       </div>
 
@@ -649,7 +633,7 @@
             <div style="margin-top: 50px;"">
                 <p class="text-center">All plans include unlimited users, software updates and security updates.</p>
 
-                  <h1 style="margin-top: 60px; margin-bottom: 0px; color: rgb(142, 142, 142); font-weight: 300; font-size: 30px; text-transform: uppercase;" class="text-center section-title wow zoomIn">Full Version (30 Days FREE TRIAL) - No Obligations</h1>
+                  <h1 style="margin-top: 60px; margin-bottom: 0px; color: rgb(142, 142, 142); font-weight: 300; font-size: 30px; text-transform: uppercase;" class="text-center section-title">Full Version (30 Days FREE TRIAL) - No Obligations</h1>
                 
                 <div style="text-align: center; margin-top: 50px;">
                   <a href="#" class="btn btn-primary btn-animated">START MY FREE TRIAL</a>
@@ -666,7 +650,7 @@
     <div id="our-clients" style="padding: 25px 0;" class="bg-gray">
     <div class="container">
         <div id="testimonial-slider" class="carousel carousel-fade slide" data-ride="carousel">
-        <div class="carousel-inner text-center wow zoomIn" data-wow-duration="0.5s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.3s; animation-name: zoomIn;">
+        <div class="carousel-inner text-center" style="visibility: visible;">
           <div class="item active">
             <img class="img-responsive" style="width: 175px; padding-top: 10px;" src="images/orange-logo.png" alt="">
           </div>
@@ -718,8 +702,6 @@
 <script type="text/javascript" src="js/jquery.nav.js"></script>
 <script type="text/javascript" src="js/canvas.js"></script>
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="js/wow.min.js"></script>
-
 
 <!--     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
  -->
