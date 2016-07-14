@@ -40,9 +40,10 @@
   z-index: 4;
 }
 
-#software-pt, #software-pt p {
-    color: #ccc;
+.tab-content h3{
+	color: #848484;
 }
+
 
 .selected-flag{
 	outline: none;
@@ -148,7 +149,7 @@
 }
 
 .bg-gray{
-	background-color: #f5f6f6;
+	background-color: #f9f9f9;
 }
 
 .bg-gray h1, .bg-gray h2{
@@ -156,10 +157,10 @@
 }
 
 .pt-price{
-	font-size: 40px;
+	font-size: 28px;
     position: relative;
     top: 3px;
-    color: #ffd600;
+    color: #ff5e3a;
 }
 
 #software-pt{
@@ -167,6 +168,15 @@
 	width: 95%;
 	margin-left: auto;
     margin-right: auto;
+}
+
+#software-pt, #software-pt p, #software-pt h1,  #software-pt h3 {
+    color: #757575;
+    font-weight: 300;
+}
+
+#software-pt h2, #software-pt h3{
+	font-weight: 100;
 }
 
 .pt-tr-first td{
@@ -1745,7 +1755,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-size:36px;
 	font-weight:300;
 	margin-bottom:0;
-	color:#43575d;
+	color:#5f5f5f;
 }
 
 
@@ -2289,8 +2299,8 @@ textarea.form-control {
 ================================*/
 
 .price {
-	background-color:#fff;
-	color:#4f4f4f;
+	background-color:#fbfbfb;
+	color:#8c8c8c;
 	padding-top:30px;
 	padding-bottom:60px;
 	border-radius: 20px;
@@ -2305,14 +2315,14 @@ textarea.form-control {
 
 .price h1 {
 	font-size:32px;
-	color:#000;
+	color:#717171;
 	margin-top: 0;
     margin-bottom: 0;
 }
 
 .price h2 {
 	margin-top:20px;
-	color: #3371cb;
+	color: rgb(134, 134, 134);
 	font-size: 30px;
     font-weight: 500;
 }
@@ -2320,16 +2330,15 @@ textarea.form-control {
 .price ul {
 	padding-top:20px;
 	padding-bottom:45px;
-	min-height:257px;
 }
 
 .price ul li {
-	margin-top:10px
+	margin-top:10px;
+	font-weight: 300;
 }
 
 .price .btn-primary {
 	color:#000;
-	border-color:#a0d48c;
 }
 
 .price .btn-primary:hover {
@@ -2599,9 +2608,6 @@ textarea.form-control {
 	background-color: rgb(255, 255, 255);;
 }
 
-#price .btn-primary{
-	background-color: #60a521 !important;
-}
 
 #footer a {
 	color: #8e8e8e;
