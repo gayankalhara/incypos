@@ -3169,7 +3169,18 @@ dl.gateway-dl dd {
 .gateway-support__dropdown {
     display: block;
     margin: 0 auto 3rem;
-    float: right;
+}
+
+@media (min-width: 768px) {
+	.gateway-support__dropdown {
+		float: right;
+	}
+}
+
+@media (max-width: 768px) {
+	.gateway-support__dropdown {
+		margin-top: 25px;
+	}
 }
 
 .gateway-support__dropdown a:focus{
