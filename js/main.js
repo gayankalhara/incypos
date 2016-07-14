@@ -118,7 +118,7 @@ jQuery(function ($) {
 	(function () {
 		function menuToggle(){
 			var windowWidth = $(window).width();
-			if(windowWidth > 767 ){
+			if(windowWidth > 1199 ){
 				$(window).on('scroll', function(){
 					if( $(window).scrollTop()>650 ){
 						$('.navbar').addClass('navbar-fixed-top');

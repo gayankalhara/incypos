@@ -2787,16 +2787,18 @@ a:hover,
     color: #fff;
 }
 
-#navigation li.active:after {
-	content: "";
-    height: 1px;
-    width: 80%;
-    position: absolute;
-    left: 10%;
-    bottom: 10px;
-    z-index: 203;
-    opacity: 0.85.whatsit h1;
-    background-color: #fff;
+@media (min-width: 1200px)  {
+	#navigation li.active:after {
+		content: "";
+	    height: 1px;
+	    width: 80%;
+	    position: absolute;
+	    left: 10%;
+	    bottom: 10px;
+	    z-index: 203;
+	    opacity: 0.85.whatsit h1;
+	    background-color: #fff;
+	}
 }
 
 .btn-primary,
