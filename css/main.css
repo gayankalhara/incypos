@@ -32,6 +32,10 @@
 
 @import'vendor/jquery.mCustomScrollbar.css';
 
+body {
+	overflow-x: hidden !important;
+}
+
 .popover.top{
     margin-top: -55px;
 }
