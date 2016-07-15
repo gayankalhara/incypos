@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Info -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
     <meta name="description" content="incyPOS - Smart Restaurant Management Application Suite">
     <meta name="author" content="Gayan Kalhara @ incyLabs">
 
     <!--title-->
-    <title>IncyPOS</title>
+    <title>incyPOS - Smart Restaurant Management Application Suite</title>
 
     <!--CSS-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
-    <!-- <link href="css/owl.carousel.css" rel="stylesheet"> -->
-    <link href="css/animate.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
 
@@ -23,26 +20,186 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/4.0.8/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/4.0.8/sweetalert2.css">
 
+    <!-- Internation Telephone Plugin @https://github.com/jackocnr/intl-tel-input -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/css/intlTelInput.css">
     
-
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Icons -->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
-
     <!-- Modernizr -->
     <script src="js/js/libs/modernizr.custom.js"></script>
     <script src="js/js/libs/detectizr.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+
 </head><!--/head-->
 
 <body>
+
+
+    <div id="free-demo" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h2 class="modal-title" style="font-weight: 400;">Request to Call</h2>
+        </div>
+        <div class="modal-body">
+          <h4 style="line-height: 38px; margin-top: 0px; margin-bottom: 25px;">Tell us a few details to get your onsite demo scheduled along with free consultation session on using the right technology at your restaurant.</h4>
+          <form>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class='input-group'>
+                            <input type="text" class="form-control" id="name" placeholder="Your Name/Restaurant Name">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </span>
+                        </div>
+                     </div>   
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class='input-group'>
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </span>
+                        </div>
+                    </div>        
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class='input-group'>
+                            <input type="tel" class="form-control" id="telephone" placeholder="Telephone">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-earphone"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                              <input type="text" class="form-control" id="date" placeholder="Preffered Date">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker2'>
+                              <input type="text" class="form-control" id="time" placeholder="Preffered Date">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-animated">Send</button>
+        </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div id="request" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h2 class="modal-title" style="font-weight: 400;">Schedule your FREE demonstration</h2>
+        </div>
+        <div class="modal-body">
+          <h4 style="line-height: 38px; margin-top: 0px; margin-bottom: 25px;">Tell us a few details and we'll call you!</h4>
+          <form>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class='input-group'>
+                            <input type="text" class="form-control" id="name" placeholder="Your Name/Restaurant Name">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </span>
+                        </div>
+                     </div>   
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class='input-group'>
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </span>
+                        </div>
+                    </div>        
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class='input-group'>
+                            <input type="tel" class="form-control" id="telephone" placeholder="Telephone">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-earphone"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-animated">Send</button>
+        </div>
+        </div>
+
+      </div>
+    </div>
+
 
   <div class="image-bg" id="home-section">
       <div class="container">
@@ -54,7 +211,7 @@
               <div class="button">
                   <a style="display: none" class="btn btn-orange btn-primary btn-animated" href=
                   "" >Start Now for FREE</a> <a class=
-                  "btn btn-yellow btn-primary btn-animated" href="#test-popup" data-effect="mfp-zoom-in">I want to see it in action</a>
+                  "btn btn-yellow btn-primary btn-animated" data-toggle="modal" data-target="#free-demo">I want to see it in action</a>
               </div>
               <div style="text-align: center;">
                   <span class="scroll-more scroll" data-offset-top="80"><i class=
@@ -86,11 +243,11 @@
                         <li><a href="#about">About incyPOS</a></li>
                         <li><a href="#complete-system">Complete System</a></li>
                         <li><a href="#features">App Features</a></li>
-                        <li><a href="#why-special">Why it's Special</a></li>
+                        <li><a href="#more-features">More Features</a></li>
                         <li><a href="#price">Pricing</a></li>
 
                         <a href="tel:+94-770-094-629" style="display: inline-block;">
-                        <li style="margin-left: 30px; color: #fff; font-weight: 100; font-size: 20px; vertical-align: middle; line-height: 54px;"><img style="margin-right: 10px; width: 20px;" src="images/icons/icon-phone-top.svg" />+94 770 094 629</li></a>
+                        <li style="margin-left: 30px; color: #fff; font-weight: 100; font-size: 20px; vertical-align: middle; line-height: 54px;"><span style="top: 4px; left: -4px;" class="glyphicon glyphicon-earphone"></span>+94 770 094 629</li></a>
                     </ul>
                 </nav>
             </div>
@@ -407,7 +564,7 @@
     </div>
 </div><!--/#features-->
 
-  <div id="why-special">
+  <div id="more-features">
 	<!-- Feature Tabs -->
       <section class="fw-bg bg-align-bottom bg-gray feature-tabs" id="features">
         <!-- Heading when columns stack -->
@@ -518,7 +675,7 @@
 
               </div>
 
-							<a href="#" class="btn btn-primary btn-animated">Get This</a>
+							<a data-toggle="modal" data-target="#request" class="btn btn-primary btn-animated">Get This</a>
 						</div>
 					</div>
 					<div class="col-sm-3">
@@ -540,7 +697,7 @@
 
               </div>
 
-							<a href="#" class="btn btn-primary btn-animated">Get This</a>
+							<a data-toggle="modal" data-target="#request" class="btn btn-primary btn-animated">Get This</a>
 						</div>
 					</div>
 					<div class="col-sm-3">
@@ -561,7 +718,7 @@
 
               </div>
 
-							<a href="#" class="btn btn-primary btn-animated">Get This</a>
+							<a data-toggle="modal" data-target="#request" class="btn btn-primary btn-animated">Get This</a>
 						</div>
 					</div>
 
@@ -575,7 +732,7 @@
                 <h2 style="color: #8c8c8c;  font-size: 22px; font-weight: 300; line-height: 35px;">Sure, We are here to help</h2>
                 <p style="color: #8c8c8c;">Tell us more about your restaurant, let's get you a custom set up.</p>
 
-                <a style="margin-top: 30px;" href="#" class="btn btn-primary btn-animated">Request Now</a>
+                <a style="margin-top: 30px;" data-toggle="modal" data-target="#request" class="btn btn-primary btn-animated">Request Now</a>
               </div>
             </div>
             </a>
@@ -599,7 +756,7 @@
             <td width=50%>Enterprise</td>
           </tr>
           <tr class="pt-tr-first">
-            <td>Data Support</td>
+            <td style="border-right: 1px solid #efefef;">Data Support</td>
             <td>Unlimited</td>
             <td rowspan="5">
               <div style="position: relative; top: -10px;">
@@ -611,19 +768,19 @@
             </td>
           </tr>
           <tr>
-            <td>Support</td>
+            <td style="border-right: 1px solid #efefef;">Support</td>
             <td>24/7 Email and Phone</td>
           </tr>
           <tr>
-            <td>Software Updates</td>
+            <td style="border-right: 1px solid #efefef;">Software Updates</td>
             <td>All Updates</td>
           </tr>
           <tr>
-            <td>Pay Monthly</td>
+            <td style="border-right: 1px solid #efefef;">Pay Monthly</td>
             <td>LKR <span class="pt-price">2990</span> /mo/device</td>
           </tr>
           <tr class="pt-tr-last">
-            <td>Pay Yearly</td>
+            <td style="border-right: 1px solid #efefef;">Pay Yearly</td>
             <td>LKR <span  class="pt-price">30,000</span> /year/device</td>
           </tr>
         </table>
@@ -636,7 +793,7 @@
                   <h1 style="margin-top: 60px; margin-bottom: 0px; color: rgb(142, 142, 142); font-weight: 300; font-size: 30px; text-transform: uppercase;" class="text-center section-title">Full Version (30 Days FREE TRIAL) - No Obligations</h1>
                 
                 <div style="text-align: center; margin-top: 50px;">
-                  <a href="#" class="btn btn-primary btn-animated">START MY FREE TRIAL</a>
+                  <a data-toggle="modal" data-target="#request" class="btn btn-primary btn-animated">START MY FREE TRIAL</a>
                 </div>
             </div>
 		</div>
@@ -668,17 +825,15 @@
 					<p>© Copyright 2016 <a href="#">Innovative Cyber Solutions (Pvt) Ltd.</a></p>
 
           <ul class="list-inline footer-menu ">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms and Conditions</a></li>
+            <li style="display: none;"><a href="#">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms and Conditions</a></li>
           </ul>
 				</div>
 				<div class="col-sm-5">
                     <div>
                         <div class="gateway-support__dropdown dropdown text-right">
                             <a class="dropdown__toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/gateways"><span class="country-flag country-lk"></span> Sri Lanka</a>
-                            <span class="icon-download">
-                              <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                            </span>
+                            <span class="glyphicon glyphicon-menu-down"></span>
                             <ul class="dropdown__menu" role="menu" aria-labelledby="dLabel">
                                 <li><a href="#" data-filter-by="int"><span class="country-flag country-int"></span>International</a>
                                 </li>
@@ -698,20 +853,23 @@
 	<!--/#scripts-->
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript" src="js/jquery.nav.js"></script>
 <script type="text/javascript" src="js/canvas.js"></script>
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
 
 <!--     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
  -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.7/js/intlTelInput.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
 
 <script src="js/js/plugins/smoothscroll.js"></script>
 <script src="js/js/plugins/jquery.waypoints.min.js"></script>
 <script src="js/js/plugins/form-plugins.js"></script>
 <script src="js/js/plugins/jquery.mCustomScrollbar.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/locales.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
 
 </body>

@@ -1,36 +1,21 @@
 
 /*
-  Theme Name: Nap App
-  Theme URL: http://demo.themeregion.com/nap-app
-  Author: ThemeRegion
-  Author URI: http://www.themeregion.com
-  Description: Nap app - App Landing bootstrap Template
-  Version: 1.0
+  incyPOS - Smart Restaurant Management Application Suite
+
+  Copyright (C) 2016 Gayan Kalhara. All Rights Reserved.
 */
-
-/*=======================================================================
-[Table of contents]
-=========================================================================
-
-1.	Typography
-2.	navigation-section
-3.	slider-section
-4.	Features-section
-5.	Description
-6.	Choose Color
-7.	Screenshots
-8.	video-section
-9.	Pricing-section
-10.	Review Section
-11.	ownload-app
-12.	Contact us
-13.	Index Blue
-
-==========================================================================*/
 
 @import 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,700';
 
 @import'vendor/jquery.mCustomScrollbar.css';
+
+a.btn{
+	color: #555;
+}
+
+.input-group-addon{
+	border: 1px solid #e4e4e4;
+}
 
 .container {
     overflow-x:hidden;
@@ -1795,14 +1780,13 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing:2px;
 }
 
-.btn-primary.btn-animated:hover,
 .btn-primary.btn-animated:focus {
-	background-color:transparent;
+	background-color: #ff8f00;
 	outline:none;
 }
 
 .btn-primary{
-	background-color:#a0d48c;
+	background-color:#ff5e3a;
 	color:#fff;
 	border:0;
 	font-size:12px;
@@ -1810,8 +1794,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-	background-color:#fff;
-	color:#a0d48c;
+	background-color:#d84626;
+	color:#fff;
 }
 
 .parallax-section {
@@ -2827,7 +2811,7 @@ a:hover,
 	border:1px solid #f7941d;
 }
 
-#contact .form-control:focus {
+.form-control:focus {
     border: 1px solid #d6d6d6 !important;
 }
 
