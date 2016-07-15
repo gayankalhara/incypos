@@ -132,10 +132,11 @@ $('form').submit(function (submitEvt){
       "crossDomain": true,
       "url": url,
       "method": "POST",
+      "Access-Control-Allow-Origin": "https://www.incypos.com",
       "headers": {
         "content-type": "application/json",
-        "cache-control": "no-cache",
-        "Access-Control-Allow-Origin": "https://www.incypos.com"
+        "cache-control": "no-cache"
+        
       },
       "processData": false,
       "data": JSON.stringify(objJSON),
