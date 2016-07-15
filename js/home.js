@@ -1,4 +1,26 @@
 
+$e = $("input#frmPhone");
+
+$("input#frmPhone").on("keyup change", function() {
+    
+
+    var t;
+    t = void 0,
+    t = $("input#frmPhone").intlTelInput("isValidNumber"),
+    $("#phone").val(t);
+    console.log(t);
+
+    if(t==false){
+        if(!$e.next('div.popover:visible').length){
+            $e.popover('show');
+        }
+    } else{
+        $e.popover('hide');
+    }
+    
+            
+});
+
 /*Document Ready*//////////////////////////////////////////////////////////////////////////////////////////////////////
 jQuery(document).ready(function($) {
     'use strict';
@@ -36,26 +58,6 @@ $("input#frmPhone").intlTelInput({
 });
 
 
-$("input#frmPhone").on("keyup change", function() {
-    $e = $("input#frmPhone");
-
-
-    var t;
-    t = void 0,
-    t = $("input#frmPhone").intlTelInput("isValidNumber"),
-    $("#phone").val(t);
-    console.log(t);
-
-    if(t==false){
-        if(!$e.next('div.popover:visible').length){
-            $e.popover('show');
-        }
-    } else{
-        $e.popover('hide');
-    }
-    
-            
-});
 
 
 jQuery(function ($) {
@@ -132,7 +134,8 @@ $('form').submit(function (submitEvt){
       "method": "POST",
       "headers": {
         "content-type": "application/json",
-        "cache-control": "no-cache"
+        "cache-control": "no-cache",
+        "Access-Control-Allow-Origin": "https://www.incypos.com"
       },
       "processData": false,
       "data": JSON.stringify(objJSON),
