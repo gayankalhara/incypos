@@ -134,7 +134,8 @@ $('form').submit(function (submitEvt){
       "method": "POST",
       "headers": {
         "content-type": "application/json",
-        "cache-control": "no-cache"
+        "cache-control": "no-cache",
+        "Access-Control-Allow-Origin": "https://www.incypos.com"
       },
       "processData": false,
       "data": JSON.stringify(objJSON),
