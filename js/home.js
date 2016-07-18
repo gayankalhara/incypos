@@ -12,6 +12,7 @@ $("input#rqtPhone").on("keyup change", function() {
    validatePhone('rqt');
 });
 
+
 function validatePhone(field){
   $e = $("input#" + field + "Phone");
   var t;
@@ -352,35 +353,35 @@ $('form#frmRqt').submit(function (submitEvt3){
       $(currentTabletSlide).addClass("active");
   });
 
- //  /** Why is it Special - Autoswitching
-    // *********************************************************/
-    // if($('.feature-tabs .nav-tabs').length > 0) {
- //    var changeInterval = $('.feature-tabs .nav-tabs').data('interval');
-    //  var tabCarousel = setInterval(function() {
-    //         var tabs = $('.feature-tabs .nav-tabs > li'),
-    //             active = tabs.filter('.active'),
-    //             next = active.next('li'),
-    //             toClick = next.length ? next.find('a') : tabs.eq(0).find('a');
+  /** Why is it Special - Autoswitching
+    *********************************************************/
+    if($('.feature-tabs .nav-tabs').length > 0) {
+    var changeInterval = $('.feature-tabs .nav-tabs').data('interval');
+     var tabCarousel = setInterval(function() {
+            var tabs = $('.feature-tabs .nav-tabs > li'),
+                active = tabs.filter('.active'),
+                next = active.next('li'),
+                toClick = next.length ? next.find('a') : tabs.eq(0).find('a');
 
-    //         if ($('#scrHv:hover').length == 0) {
-    //          toClick.trigger('click');
-    //      }
-    //   }, changeInterval);
-    // }
+            if ($('#scrHv:hover').length == 0) {
+             toClick.trigger('click');
+         }
+      }, changeInterval);
+    }
 
     /** Graphs - Autoswitching
     *********************************************************/
 
-  //   var changeInterval = 3000;
-        // var tabsC = setInterval(function() {
-     //        var tabsC = $('.autoS > li'),
-     //            activeC = tabsC.filter('.active'),
-     //            nextC = activeC.next('li'),
-     //            toClickC = nextC.length ? nextC.find('a') : tabsC.eq(0).find('a');
+    var changeInterval = 3000;
+        var tabsC = setInterval(function() {
+            var tabsC = $('.autoS > li'),
+                activeC = tabsC.filter('.active'),
+                nextC = activeC.next('li'),
+                toClickC = nextC.length ? nextC.find('a') : tabsC.eq(0).find('a');
 
-     //            if ($('#ftrHv:hover').length == 0) {
-     //             toClickC.trigger('click');
-     //         }
-     //  }, changeInterval);
+                if ($('#ftrHv:hover').length == 0) {
+                 toClickC.trigger('click');
+             }
+      }, changeInterval);
 
 });/*Document Ready End*/////////////////////////////////////////////////////////////
