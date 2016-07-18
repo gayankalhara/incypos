@@ -229,7 +229,6 @@
         display: none!important;
     }
     .navbar-nav {
-        float: none!important;
         margin-top: 7.5px;
     }
     .navbar-nav>li {

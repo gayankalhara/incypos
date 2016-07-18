@@ -185,7 +185,7 @@ $('form#frmDemo').submit(function (submitEvt2){
         var telephone = $("input#demoPhone").intlTelInput("getNumber");
 
         var date = $('#datetimepicker1').data().date
-        var time = moment($('#datetimepicker2').data().date, 'HH:mm A').format("HH:MM");
+        var time = moment($('#datetimepicker2').data().date, 'HH:mm A').format("HH:mm");
 
         var preferredTime = date + " " + time;
 
