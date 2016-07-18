@@ -9,10 +9,47 @@
 
 @import'vendor/jquery.mCustomScrollbar.css';
 
-
+.modal-body .intl-tel-input{
+	position: static !important;
+}
 
 a.btn{
 	color: #555;
+}
+
+.tab-content img{
+	width: 100%;
+}
+
+.modal-dialog {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 700px;
+    
+}
+
+#demo .modal-dialog{
+	height: 476px;
+}
+
+#request .modal-dialog{
+	height: 325px;
+}
+
+.modal-header{
+	padding: 25px 30px;
+}
+
+.modal-body{
+	padding: 20px 30px;
+}
+
+.modal-footer{
+    padding: 25px 30px;
 }
 
 .input-group-addon{
@@ -1951,7 +1988,7 @@ textarea.form-control {
 }
 
 .home-content.padding{
-	padding:175px 0;
+	padding:130px 0;
 }
 
 .home-content h2{
@@ -2800,6 +2837,28 @@ a:hover,
 	    z-index: 203;
 	    opacity: 0.85.whatsit h1;
 	    background-color: #fff;
+	}
+}
+
+@media (max-width: 480px)  {
+	.nav-tabs img{
+		width: 50px;
+	}
+
+	.feature-tabs .nav-tabs{
+		margin: 0;
+	}
+
+	.nav-tabs li{
+		margin: 0 !important;
+	}
+
+
+}
+
+@media (max-width: 760px)  {
+	.modal-dialog{
+		width: 95%;
 	}
 }
 

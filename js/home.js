@@ -1,25 +1,36 @@
 
-$e = $("input#frmPhone");
+var url = "https://api.incylabs.com/syncJDBC";
 
-$("input#frmPhone").on("keyup change", function() {
-    
+$("input#ctaPhone").on("keyup change", function() {
+   validatePhone('cta');         
+});
 
-    var t;
-    t = void 0,
-    t = $("input#frmPhone").intlTelInput("isValidNumber"),
-    $("#phone").val(t);
-    console.log(t);
+$("input#demoPhone").on("keyup change", function() {
+   validatePhone('demo');         
+});
+
+$("input#rqtPhone").on("keyup change", function() {
+   validatePhone('rqt');
+});
+
+function validatePhone(field){
+  $e = $("input#" + field + "Phone");
+  var t;
+  t = void 0,
+    t = $("input#" + field + "Phone").intlTelInput("isValidNumber");
 
     if(t==false){
         if(!$e.next('div.popover:visible').length){
             $e.popover('show');
         }
+
+        return false;
     } else{
         $e.popover('hide');
+
+        return true;
     }
-    
-            
-});
+}
 
 /*Document Ready*//////////////////////////////////////////////////////////////////////////////////////////////////////
 jQuery(document).ready(function($) {
@@ -27,24 +38,21 @@ jQuery(document).ready(function($) {
 
 $(function () {
     $('#datetimepicker1').datetimepicker({
-        defaultDate: "11/1/2013",
-        disabledDates: [
-            moment("12/25/2013"),
-            new Date(2013, 11 - 1, 21),
-            "11/22/2013 00:53"
-        ]
+        minDate: new Date(),
+        format: 'YYYY-MM-DD',
     });
 });
 
 $(function () {
     $('#datetimepicker2').datetimepicker({
-        format: 'LT'
+        format: 'LT',
+
     });
 });
 
 // @https://github.com/jackocnr/intl-tel-input
 
-$("input#frmPhone").intlTelInput({
+$("input[type='tel']").intlTelInput({
     // geoIpLookup: function(callback) {
     //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
     //     var countryCode = (resp && resp.country) ? resp.country : "";
@@ -56,9 +64,6 @@ $("input#frmPhone").intlTelInput({
     preferredCountries: ["lk", "sg", "mv", "ar", "gb", "in", "id", "th"],
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/js/utils.js"
 });
-
-
-
 
 jQuery(function ($) {
 
@@ -110,66 +115,208 @@ jQuery(function ($) {
 
 
 
-$('form').submit(function (submitEvt){
+$('form#frmCta').submit(function (submitEvt){
+    if(validatePhone('cta')){
 
-    var time = Date.now();
-    var columns = ["name", "email", "country_code", "phone", "utm_source", "utm_content"];
-    var values = ["Gayan Kalhara", "gayan.csnc@gmail.com", "+94", "0766987229", "website", "call-to-action"];
+      var name = $('#ctaName').val();
+      var email = $('#ctaEmail').val();
+      var countryCode = $("input#ctaPhone").intlTelInput("getSelectedCountryData").iso2.toUpperCase();
+      var telephone = $("input#ctaPhone").intlTelInput("getNumber");
 
-    var inserts = [{columns: columns, tableName: "subscriber", values: values}]
-    var transactions = [{inserts:inserts}];
+      var time = Date.now();
+      var columns = ["name", "email", "country_code", "phone", "utm_source", "utm_content"];
+      var values = [name, email, countryCode, telephone, "website", "call-to-action"];
 
-    var objJSON = new Object;
-    objJSON.transactions = transactions;
-    objJSON.databaseName = "incy";
+      var inserts = [{columns: columns, tableName: "subscriber", values: values}]
+      var transactions = [{inserts:inserts}];
 
-    var strJSON = JSON.stringify(objJSON);
+      var objJSON = new Object;
+      objJSON.transactions = transactions;
+      objJSON.databaseName = "incy";
 
-    var url = "https://api.incylabs.com/sync";
+      var strJSON = JSON.stringify(objJSON);
 
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": url,
-      "method": "POST",
-      "Access-Control-Allow-Origin": "https://www.incypos.com",
-      "headers": {
-        "content-type": "application/json",
-        "cache-control": "no-cache"
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "POST",
         
-      },
-      "processData": false,
-      "data": JSON.stringify(objJSON),
+        "headers": {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+        },
+        success: function(){
+                swal(
+                  'Thank you!',
+                  "We'll get in touch with you within 48 hours.",
+                  'success')
+              },
+
+        error: function(){
+          swal(
+            'Something went wrong!',
+            "Administrators notified. They'll fix this issue soon.",
+            'error'
+          )
+        },
+        "processData": false,
+        "data": JSON.stringify(objJSON),
+      };
+
+      $.ajax(settings).done(function (response) {
+        console.log(JSON.stringify(response));
+      });
+
     }
-
-    $.ajax(settings).done(function (response) {
-            swal(
-              'Thank you!',
-              "We'll get in touch with you within 48 hours.",
-              'success'
-            )
-
-        var error = response.transactions[0].error;
-
-        if (error == null){
-            swal(
-              'Thank you!',
-              "We'll get in touch with you within 48 hours.",
-              'success'
-            )
-        } else{
-            swal(
-              'Something went wrong!',
-              "Administrators notified. They'll fix this issue soon.",
-              'error'
-            )
-        }
-
-      console.log(JSON.stringify(response));
-    });
 
     submitEvt.preventDefault();
 });
+
+$('form#frmDemo').submit(function (submitEvt2){
+  if(validatePhone('demo')){
+        
+
+        var name = $('#demoName').val();
+        var email = $('#demoEmail').val();
+        var countryCode = $("input#demoPhone").intlTelInput("getSelectedCountryData").iso2.toUpperCase();
+        var telephone = $("input#demoPhone").intlTelInput("getNumber");
+
+        var date = $('#datetimepicker1').data().date
+        var time = moment($('#datetimepicker2').data().date, 'HH:mm A').format("HH:MM");
+
+        var preferredTime = date + " " + time;
+
+        var time = Date.now();
+        var columns = ["name", "email", "country_code", "phone", "utm_source", "utm_content", "preferred_time"];
+        var values = [name, email, countryCode, telephone, "website", "demo", preferredTime];
+
+        var inserts = [{columns: columns, tableName: "subscriber", values: values}]
+        var transactions = [{inserts:inserts}];
+
+        var objJSON = new Object;
+        objJSON.transactions = transactions;
+        objJSON.databaseName = "incy";
+
+        var strJSON = JSON.stringify(objJSON);
+
+        console.log(strJSON);
+
+        $('#demo').modal('hide');
+
+        var settings2 = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "POST",
+        
+        "headers": {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+        },
+
+        success: function(){
+              setTimeout(function (){
+                swal(
+                  'Thank you!',
+                  "We'll get in touch with you within 48 hours.",
+                  'success')
+              }, 500);
+        },
+
+        error: function(){
+            setTimeout(function (){
+              swal(
+                'Something went wrong!',
+                "Administrators notified. They'll fix this issue soon.",
+                'error'
+              )
+            }, 500);
+        },
+
+        "processData": false,
+        "data": JSON.stringify(objJSON),
+      };
+
+      $.ajax(settings2).done(function (response) {
+        console.log(JSON.stringify(response));
+      });
+
+    }
+
+      submitEvt2.preventDefault();
+
+});
+
+
+$('form#frmRqt').submit(function (submitEvt3){
+    if(validatePhone('rqt')){
+        
+        var name = $('#rqtName').val();
+        var email = $('#rqtEmail').val();
+        var countryCode = $("input#rqtPhone").intlTelInput("getSelectedCountryData").iso2.toUpperCase();
+        var telephone = $("input#rqtPhone").intlTelInput("getNumber");
+
+        var columns = ["name", "email", "country_code", "phone", "utm_source", "utm_content"];
+        var values = [name, email, countryCode, telephone, "website", "trial"];
+
+        var inserts = [{columns: columns, tableName: "subscriber", values: values}]
+        var transactions = [{inserts:inserts}];
+
+        var objJSON = new Object;
+        objJSON.transactions = transactions;
+        objJSON.databaseName = "incy";
+
+        var strJSON = JSON.stringify(objJSON);
+
+        console.log(strJSON);
+
+        $('#request').modal('hide');
+
+        var settings3 = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "POST",
+        
+        "headers": {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+        },
+
+        success: function(){
+              setTimeout(function (){
+                swal(
+                  'Thank you!',
+                  "We'll get in touch with you within 48 hours.",
+                  'success')
+              }, 500);
+        },
+
+        error: function(){
+            setTimeout(function (){
+              swal(
+                'Something went wrong!',
+                "Administrators notified. They'll fix this issue soon.",
+                'error'
+              )
+            }, 500);
+        },
+
+        "processData": false,
+        "data": JSON.stringify(objJSON),
+      };
+
+      $.ajax(settings3).done(function (response) {
+        console.log(JSON.stringify(response));
+      });
+
+    }
+
+      submitEvt3.preventDefault();
+
+});
+
 
 
     /** Feature Tabs (Changing screens of Tablet and Phone)

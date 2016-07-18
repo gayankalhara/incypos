@@ -7,6 +7,14 @@
     <meta name="description" content="incyPOS - Smart Restaurant Management Application Suite">
     <meta name="author" content="Gayan Kalhara @ incyLabs">
 
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#ff5e3a">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#ff5e3a">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <!--title-->
     <title>incyPOS - Smart Restaurant Management Application Suite</title>
 
@@ -46,90 +54,91 @@
 <body>
 
 
-    <div id="free-demo" class="modal fade" role="dialog">
+    <div id="demo" class="modal fade" role="dialog">
       <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
-          <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h2 class="modal-title" style="font-weight: 400;">Request to Call</h2>
-        </div>
-        <div class="modal-body">
-          <h4 style="line-height: 30px; margin-top: 0px; margin-bottom: 25px;">Tell us a few details to get your onsite demo scheduled along with free consultation session on using the right technology at your restaurant.</h4>
-          <form>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <div class='input-group'>
-                            <input type="text" class="form-control" id="name" placeholder="Your Name/Restaurant Name">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-user"></span>
-                            </span>
-                        </div>
-                     </div>   
-                </div>
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h2 class="modal-title" style="font-weight: 400;">Request a Call</h2>
             </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <div class='input-group'>
-                            <input type="email" class="form-control" id="email" placeholder="Email">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-envelope"></span>
-                            </span>
-                        </div>
-                    </div>        
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <div class='input-group'>
-                            <input type="tel" class="form-control" id="telephone" placeholder="Telephone">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-earphone"></span>
-                            </span>
-                        </div>
+            
+            <form name="formDemo" id="frmDemo" method="POST">
+            <div class="modal-body">
+              <h4 style="line-height: 30px; margin-top: 0px; margin-bottom: 25px;">Tell us a few details to get your onsite demo scheduled along with free consultation session on using the right technology at your restaurant.</h4>
+             
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class='input-group'>
+                                <input type="text" class="form-control" id="demoName" placeholder="Your Name/Restaurant Name" required>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </span>
+                            </div>
+                         </div>
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class='input-group'>
+                                <input type="email" class="form-control" id="demoEmail" placeholder="Email" required>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                            </div>
+                        </div>        
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class='input-group'>
+                                <input name="phone" style="padding-right: 0px;" data-placement="top" data-trigger="manual" data-content="Phone Number is incorrect!" type="tel" class="form-control" id="demoPhone" maxlength="100" required>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-earphone"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>               
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                  <input type="text" class="form-control" id="demoDate" placeholder="Preffered Date" required>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker2'>
+                                  <input type="text" class="form-control" id="demoTime" placeholder="Preffered Time" required>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span>
+                                </div>
+                            </div>
+                    </div>
+                </div>
                 
             </div>
 
-            <div class="row">
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <div class='input-group date' id='datetimepicker1'>
-                              <input type="text" class="form-control" id="date" placeholder="Preffered Date">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <div class='input-group date' id='datetimepicker2'>
-                              <input type="text" class="form-control" id="time" placeholder="Preffered Date">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-time"></span>
-                                </span>
-                            </div>
-                        </div>
-                </div>
+            <div class="modal-footer">
+                <button id="btnDemo" type="submit" class="btn btn-primary btn-animated">Send</button>
             </div>
-            
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary btn-animated">Send</button>
-        </div>
+            </form>
+        
         </div>
 
       </div>
@@ -147,14 +156,15 @@
           </button>
           <h3 class="modal-title" style="font-weight: 400;">Tell us a few details and we'll call you!</h3>
         </div>
+
+        <form name="formRqt" id="frmRqt">
         <div class="modal-body">
-          <form>
 
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                         <div class='input-group'>
-                            <input type="text" class="form-control" id="name" placeholder="Your Name/Restaurant Name">
+                            <input type="text" class="form-control" id="rqtName" placeholder="Your Name/Restaurant Name" required>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-user"></span>
                             </span>
@@ -167,7 +177,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <div class='input-group'>
-                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <input type="email" class="form-control" id="rqtEmail" placeholder="Email" required>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-envelope"></span>
                             </span>
@@ -178,22 +188,25 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <div class='input-group'>
-                            <input type="tel" class="form-control" id="telephone" placeholder="Telephone">
+                            <label class="sr-only" for="rqtPhone">Phone</label>
+                                <input name="phone" style="padding-right: 0px;" data-placement="top" data-trigger="manual" data-content="Phone Number is incorrect!" type="tel" class="form-control" id="rqtPhone" maxlength="100" required>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-earphone"></span>
                             </span>
                         </div>
                     </div>
-                </div>
-
-                
+                </div>               
             </div>
-            
-          </form>
+
+          
         </div>
+
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary btn-animated">Send</button>
+              <button type="submit" class="btn btn-primary btn-animated">Send</button>
         </div>
+
+        </form>
+        
         </div>
 
       </div>
@@ -205,12 +218,14 @@
           <div class="home-content padding">
               <img alt="" class="img-responsive" id="logo" src=
               "images/slider-logo.png">
-              <h2 style="text-shadow: 2px 1px 3px rgba(0,0,0,0.6);">Smart
-              Restaurant Management Application Suite</h2>
+              <h2 style="margin-bottom: 20px; text-shadow: 2px 1px 3px rgba(0,0,0,0.6);">Smart Restaurant Management Application Suite</h2>
+
+              <h3 style="font-size: 24px; text-shadow: 2px 1px 3px rgba(0,0,0,0.6); margin-bottom: 30px;">Works even when there is no internet!</h3>
+
               <div class="button">
                   <a style="display: none" class="btn btn-orange btn-primary btn-animated" href=
                   "" >Start Now for FREE</a> <a class=
-                  "btn btn-yellow btn-primary btn-animated" data-toggle="modal" data-target="#free-demo">I want to see it in action</a>
+                  "btn btn-yellow btn-primary btn-animated" data-toggle="modal" data-target="#demo">I want to see it in action</a>
               </div>
               <div style="text-align: center;">
                   <span class="scroll-more scroll" data-offset-top="80"><i class=
@@ -380,25 +395,26 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<form class="form-inline text-center" name="formInterested">
+					<form class="form-inline text-center" name="formInterested" id="frmCta">
 						<h2 style="color: #888888; -webkit-font-smoothing: antialiased; vertical-align: middle; font-size: 30px; margin-right: 20px; font-weight: 300; margin-bottom: 30px;">Interested? Let us call you!</h2>
                             
                         <div class="row">
                             <div class="col-sm-3">
-							    <label class="sr-only" for="frmName">Name</label>
-							    <input name="name" type="text" class="form-control" id="frmName" placeholder="Name" maxlength="100" required>
+							    <label class="sr-only" for="ctaName">Name</label>
+							    <input name="name" type="text" class="form-control" id="ctaName" placeholder="Name" maxlength="100" required>
+
                             </div>
                             
                             <div class="col-sm-3">
-							    <label class="sr-only" for="frmEmail">Email</label>
+							    <label class="sr-only" for="ctaEmail">Email</label>
 							    <input name="email" type="text" class="form-control required" data-content=
                                 "Must be at least 3 characters long, and must only contain letters."
-                                data-placement="top" data-trigger="manual" id="frmEmail" placeholder="Email" maxlength="100" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" title="Invalid Email" required>
+                                data-placement="top" data-trigger="manual" id="ctaEmail" placeholder="Email" maxlength="100" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" title="Invalid Email" required>
                             </div>
                             
                             <div class="col-sm-3">
-							    <label class="sr-only" for="frmPhone">Phone</label>
-							    <input name="phone" style="padding-right: 0px;" data-placement="top" data-trigger="manual" data-content="Phone Number is incorrect!" type="tel" class="form-control" id="frmPhone" maxlength="100" required>
+							    <label class="sr-only" for="ctaPhone">Phone</label>
+							    <input name="phone" style="padding-right: 0px;" data-placement="top" data-trigger="manual" data-content="Phone Number is incorrect!" type="tel" class="form-control" id="ctaPhone" maxlength="100" required>
                             </div>
                                 
                             <div class="col-sm-3">
