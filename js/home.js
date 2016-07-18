@@ -1,4 +1,3 @@
-
 var url = "https://api.incylabs.com/syncJDBC";
 
 $("input#ctaPhone").on("keyup change", function() {
@@ -114,67 +113,6 @@ jQuery(function ($) {
 });
 
 
-
-$('form#frmCta').submit(function (submitEvt){
-    if(validatePhone('cta')){
-
-      var name = $('#ctaName').val();
-      var email = $('#ctaEmail').val();
-      var countryCode = $("input#ctaPhone").intlTelInput("getSelectedCountryData").iso2.toUpperCase();
-      var telephone = $("input#ctaPhone").intlTelInput("getNumber");
-
-      var time = Date.now();
-      var columns = ["name", "email", "country_code", "phone", "utm_source", "utm_content"];
-      var values = [name, email, countryCode, telephone, "incypos.com", "call-to-action"];
-
-      var inserts = [{columns: columns, tableName: "subscriber", values: values}]
-      var transactions = [{inserts:inserts}];
-
-      var objJSON = new Object;
-      objJSON.transactions = transactions;
-      objJSON.databaseName = "incy";
-
-      var strJSON = JSON.stringify(objJSON);
-
-      var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": url,
-        "method": "POST",
-        
-        "headers": {
-          "content-type": "application/json",
-          "cache-control": "no-cache",
-        },
-        success: function(){
-                swal(
-                  'Thank you!',
-                  "We'll get in touch with you within 48 hours.",
-                  'success')
-              },
-
-        error: function(){
-          swal(
-            'Something went wrong!',
-            "Administrators notified. They'll fix this issue soon.",
-            'error'
-          )
-        },
-        "processData": false,
-        "data": JSON.stringify(objJSON),
-      };
-
-      $.ajax(settings).done(function (response) {
-        console.log(JSON.stringify(response));
-      });
-
-    }
-
-    $("form#frmCta").reset();
-
-    submitEvt.preventDefault();
-});
-
 $('form#frmDemo').submit(function (submitEvt2){
   if(validatePhone('demo')){
         
@@ -184,7 +122,7 @@ $('form#frmDemo').submit(function (submitEvt2){
         var countryCode = $("input#demoPhone").intlTelInput("getSelectedCountryData").iso2.toUpperCase();
         var telephone = $("input#demoPhone").intlTelInput("getNumber");
 
-        var date = $('#datetimepicker1').data().date
+        var date = $('#datetimepicker1').data().date;
         var time = moment($('#datetimepicker2').data().date, 'HH:mm A').format("HH:mm");
 
         var preferredTime = date + " " + time;
@@ -222,8 +160,15 @@ $('form#frmDemo').submit(function (submitEvt2){
                 swal(
                   'Thank you!',
                   "We'll get in touch with you within 48 hours.",
-                  'success')
+                  'success')         
+
               }, 500);
+
+              $("#demoName").val('');
+              $("#demoEmail").val('');
+              $("#demoPhone").val('');
+              $("#demoDate").val('');
+              $("#demoTime").val('');
         },
 
         error: function(){
@@ -234,6 +179,7 @@ $('form#frmDemo').submit(function (submitEvt2){
                 'error'
               )
             }, 500);
+
         },
 
         "processData": false,
@@ -244,13 +190,79 @@ $('form#frmDemo').submit(function (submitEvt2){
         console.log(JSON.stringify(response));
       });
 
-      $("form#frmDemo").reset();
+      
 
     }
 
       submitEvt2.preventDefault();
 
 });
+
+$('form#frmCta').submit(function (submitEvt){
+    if(validatePhone('cta')){
+
+      var name = $('#ctaName').val();
+      var email = $('#ctaEmail').val();
+      var countryCode = $("input#ctaPhone").intlTelInput("getSelectedCountryData").iso2.toUpperCase();
+      var telephone = $("input#ctaPhone").intlTelInput("getNumber");
+
+      var time = Date.now();
+      var columns = ["name", "email", "country_code", "phone", "utm_source", "utm_content"];
+      var values = [name, email, countryCode, telephone, "incypos.com", "call-to-action"];
+
+      var inserts = [{columns: columns, tableName: "subscriber", values: values}]
+      var transactions = [{inserts:inserts}];
+
+      var objJSON = new Object;
+      objJSON.transactions = transactions;
+      objJSON.databaseName = "incy";
+
+      var strJSON = JSON.stringify(objJSON);
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "POST",
+        
+        "headers": {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+        },
+        success: function(){
+                  swal(
+                    'Thank you!',
+                    "We'll get in touch with you within 48 hours.",
+                    'success');
+
+                  $("#ctaName").val('');
+                  $("#ctaEmail").val('');
+                  $("#ctaPhone").val('');
+              },
+
+        error: function(){
+          swal(
+            'Something went wrong!',
+            "Administrators notified. They'll fix this issue soon.",
+            'error'
+          )
+        },
+        "processData": false,
+        "data": JSON.stringify(objJSON),
+      };
+
+      $.ajax(settings).done(function (response) {
+        console.log(JSON.stringify(response));
+      });
+
+    }
+
+    
+
+    submitEvt.preventDefault();
+});
+
+
 
 
 $('form#frmRqt').submit(function (submitEvt3){
@@ -294,7 +306,14 @@ $('form#frmRqt').submit(function (submitEvt3){
                   'Thank you!',
                   "We'll get in touch with you within 48 hours.",
                   'success')
+
               }, 500);
+
+              $("#rqtName").val('');
+              $("#rqtEmail").val('');
+              $("#rqtPhone").val('');
+
+
         },
 
         error: function(){
@@ -315,7 +334,7 @@ $('form#frmRqt').submit(function (submitEvt3){
         console.log(JSON.stringify(response));
       });
 
-      $("form#frmRqt").reset();
+      
 
     }
 
