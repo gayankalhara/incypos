@@ -125,7 +125,7 @@ $('form#frmCta').submit(function (submitEvt){
 
       var time = Date.now();
       var columns = ["name", "email", "country_code", "phone", "utm_source", "utm_content"];
-      var values = [name, email, countryCode, telephone, "website", "call-to-action"];
+      var values = [name, email, countryCode, telephone, "incypos.com", "call-to-action"];
 
       var inserts = [{columns: columns, tableName: "subscriber", values: values}]
       var transactions = [{inserts:inserts}];
@@ -170,6 +170,8 @@ $('form#frmCta').submit(function (submitEvt){
 
     }
 
+    $("form#frmCta").reset();
+
     submitEvt.preventDefault();
 });
 
@@ -189,7 +191,7 @@ $('form#frmDemo').submit(function (submitEvt2){
 
         var time = Date.now();
         var columns = ["name", "email", "country_code", "phone", "utm_source", "utm_content", "preferred_time"];
-        var values = [name, email, countryCode, telephone, "website", "demo", preferredTime];
+        var values = [name, email, countryCode, telephone, "incypos.com", "demo", preferredTime];
 
         var inserts = [{columns: columns, tableName: "subscriber", values: values}]
         var transactions = [{inserts:inserts}];
@@ -242,6 +244,8 @@ $('form#frmDemo').submit(function (submitEvt2){
         console.log(JSON.stringify(response));
       });
 
+      $("form#frmDemo").reset();
+
     }
 
       submitEvt2.preventDefault();
@@ -258,7 +262,7 @@ $('form#frmRqt').submit(function (submitEvt3){
         var telephone = $("input#rqtPhone").intlTelInput("getNumber");
 
         var columns = ["name", "email", "country_code", "phone", "utm_source", "utm_content"];
-        var values = [name, email, countryCode, telephone, "website", "trial"];
+        var values = [name, email, countryCode, telephone, "incypos.com", "trial"];
 
         var inserts = [{columns: columns, tableName: "subscriber", values: values}]
         var transactions = [{inserts:inserts}];
@@ -310,6 +314,8 @@ $('form#frmRqt').submit(function (submitEvt3){
       $.ajax(settings3).done(function (response) {
         console.log(JSON.stringify(response));
       });
+
+      $("form#frmRqt").reset();
 
     }
 
